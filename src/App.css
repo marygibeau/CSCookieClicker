@@ -1,0 +1,56 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+#kmpbutton:active {
+  content: url("../assets/kmp_button_cash.png");
+}
+
+#gameSpace {
+  display: flex;
+  flex-flow: row;
+  height: 100%;
+}
+
+#buttonArea {
+  width: 25%;
+}
+
+#storeArea {
+  flex-grow: 1;
+}
+
+.table {
+  display: table;
+  /* Allow the centering to work */
+  margin: 0 auto;
+}
+
+ul.horizontal-list {
+  list-style: none;
+}
+
+ul.horizontal-list li {
+  display: inline;
+}
+
+.kris {
+  height: 75px;
+  /* transform: scale(0.3); */
+}
+
+.App-header {
+  background-color: #222;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: xx-large;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
