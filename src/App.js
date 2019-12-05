@@ -5,8 +5,6 @@ import KrisImage from "../assets/kris.png";
 import StottsImage from "../assets/stotts.png";
 import MontekImage from "../assets/montek.png";
 import JeffayImage from "../assets/jeffay.png";
-// import KMPButton from './KMPButton';
-// import Score from './Score';
 
 class App extends Component {
 
@@ -56,7 +54,7 @@ class App extends Component {
       this.setState({
         score: this.state.score - this.state.jeffayCost,
         jeffayCount: this.state.jeffayCount + 1,
-        jeffayCost: this.state.jeffayCost + (50 * (this.state.jeffayCount + 1))
+        jeffayCost: this.state.jeffayCost + (75 * (this.state.jeffayCount + 1))
       });
     }
   }
