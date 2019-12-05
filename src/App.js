@@ -4,6 +4,7 @@ import KMPImage from "../assets/kmp_button.png";
 import KrisImage from "../assets/kris.png";
 // import KMPButton from './KMPButton';
 // import Score from './Score';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class App extends Component {
 
@@ -53,34 +54,90 @@ class App extends Component {
   }
 
   render() {
-    return (
-      <div className="App">
-        <div class="App-header">
-          <p class="App-intro">Welcome to UNC CS Clicker</p>
-        </div>
-        <div id="gameSpace">
-          <div id="buttonArea">
-            <img id="kmpbutton" src={KMPImage} onClick={() => this.KMPClickCallback()} alt={"kmp button"} />
-            <p>{this.state.score} Tickets</p>
-          </div>
-          <div id="storeArea">
-            <p onClick={() => this.boughtKrisCallBack()}>click me to buy a kris for {this.state.krisCost} tickets</p>
-            <div id="krises">
-              {/* <img class="kris"src={KrisImage}/> */}
-              <div class="table">
-                <ul class="horizontal-list">
-                  {this.state.krises.map((value, index) => {
-                    return <li key={index}>{value}</li>
-                  })}
-                </ul>
-              </div>
-              <p>kris count: {this.state.krisCount}</p>
+    const Login = () => (
+      <div>
+        <h2>Login</h2>
+        <form>
+            <div class="field">
+                <label class="label">Username</label>
+                <div class="control">
+                    <input id="username" class="input" type="text" name="username"/>
+                </div>
             </div>
+            <div class="field">
+                <label class="label">Password</label>
+                <div class="control">
+                    <input id="password" class="input" type="password"/>
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <input id="submitbutton" class="button is-dark" type="submit"/>
+                </div>
+            </div>
+        </form>
+      </div>
+    );
+    
+    const About = () => (
+      <div>
+        <h2>About</h2>
+      </div>
+    );
+    
+    const Game = () => (
+      <div className="App">
+      <div class="App-header">
+        <p class="App-intro">Welcome to UNC CS Clicker</p>
+      </div>
+      <div id="gameSpace">
+        <div id="buttonArea">
+          <img id="kmpbutton" src={KMPImage} onClick={() => this.KMPClickCallback()} alt={"kmp button"} />
+          <p>{this.state.score} Tickets</p>
+        </div>
+        <div id="storeArea">
+          <p onClick={() => this.boughtKrisCallBack()}>click me to buy a kris for {this.state.krisCost} tickets</p>
+          <div id="krises">
+            {/* <img class="kris"src={KrisImage}/> */}
+            <div class="table">
+              <ul class="horizontal-list">
+                {this.state.krises.map((value, index) => {
+                  return <li key={index}>{value}</li>
+                })}
+              </ul>
+            </div>
+            <p>kris count: {this.state.krisCount}</p>
           </div>
         </div>
       </div>
+      </div>
+    );
+    return (
+      <Router>
+      <div>
+        <ul>
+          <li>
+            <Link to="/">Login</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/game">Game</Link>
+          </li>
+        </ul>
+  
+        <hr />
+  
+        <Route exact path="/" component={Login} />
+        <Route path="/about" component={About} />
+        <Route path="/game" component={Game} />
+      </div>
+    </Router>
     );
   }
 }
+
+
 
 export default App;
