@@ -58,6 +58,15 @@ class App extends Component {
         <div class="App-header">
           <p class="App-intro">Welcome to UNC CS Clicker</p>
         </div>
+
+        <h2>Search for professors to get more cookies!</h2>
+        <form autocomplete="off" action="/action_page.php">
+          <div class="autocomplete">
+              <input id="myInput" type="text" name="myCountry" placeholder="Professor Name"></input>
+          </div>
+          <input type="submit"></input>
+        </form>
+        
         <div id="gameSpace">
           <div id="buttonArea">
             <img id="kmpbutton" src={KMPImage} onClick={() => this.KMPClickCallback()} alt={"kmp button"} />
