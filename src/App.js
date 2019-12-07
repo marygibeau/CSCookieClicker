@@ -112,6 +112,9 @@ class App extends Component {
           </div>
           <input type="submit"></input>
         </form>
+      <script>
+        autocomplete(document.getElementById("myInput"), professors);
+        </script>
         
         <div id="gameSpace">
           <div id="buttonArea">
