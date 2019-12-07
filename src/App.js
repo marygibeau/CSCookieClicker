@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import KMPImage from "../assets/kmp_button.png";
 import KrisImage from "../assets/kris.png";
-// import KMPButton from './KMPButton';
-// import Score from './Score';
+import StottsImage from "../assets/stotts.png";
+import MontekImage from "../assets/montek.png";
+import JeffayImage from "../assets/jeffay.png";
 
 class App extends Component {
 
@@ -15,12 +16,24 @@ class App extends Component {
       krises: [],
       krisCost: 5,
       krisTPS: 0.5,
+      stottsCount: 0,
+      stotts: [],
+      stottsCost: 50,
+      stottsTPS: 5,
+      montekCount: 0,
+      montek: [],
+      montekCost: 100,
+      montekTPS: 10,
+      jeffayCount: 0,
+      jeffay: [],
+      jeffayCost: 1000,
+      jeffayTPS: 50,
     }
     this.KMPClickCallback.bind(this);
   }
   componentDidMount() {
     this.initializeState();
-    this.interval = setInterval(() => this.setState((state) => ({ score: state.score + (state.krisTPS * state.krisCount) })), 1000);
+    this.interval = setInterval(() => this.setState((state) => ({ score: state.score + (state.krisTPS * state.krisCount) + (state.stottsTPS * state.stottsCount) + (state.montekTPS * state.montekCount) + (state.jeffayTPS * state.jeffayCount) })), 1000);
   }
 
   componentWillUnmount() {
@@ -33,6 +46,39 @@ class App extends Component {
     // accumulatedPoints = timeSinceLastLoginInSeconds * pointsPerSecond
     // newScore = oldScore + accumulatedPoints;
     // this.state.score = newScore;
+  }
+
+  boughtJeffayCallBack() {
+    if (this.state.score >= this.state.jeffayCost) {
+      this.state.jeffay.push(<img class='jeffay' src={JeffayImage} />);
+      this.setState({
+        score: this.state.score - this.state.jeffayCost,
+        jeffayCount: this.state.jeffayCount + 1,
+        jeffayCost: this.state.jeffayCost + (75 * (this.state.jeffayCount + 1))
+      });
+    }
+  }
+
+  boughtMontekCallBack() {
+    if (this.state.score >= this.state.montekCost) {
+      this.state.montek.push(<img class='montek' src={MontekImage} />);
+      this.setState({
+        score: this.state.score - this.state.montekCost,
+        montekCount: this.state.montekCount + 1,
+        montekCost: this.state.montekCost + (20 * (this.state.montekCount + 1))
+      });
+    }
+  }
+
+  boughtStottsCallBack() {
+    if (this.state.score >= this.state.stottsCost) {
+      this.state.stotts.push(<img class='stotts' src={StottsImage} />);
+      this.setState({
+        score: this.state.score - this.state.stottsCost,
+        stottsCount: this.state.stottsCount + 1,
+        stottsCost: this.state.stottsCost + (10 * (this.state.stottsCount + 1))
+      });
+    }
   }
 
   boughtKrisCallBack() {
@@ -73,17 +119,57 @@ class App extends Component {
             <p>{this.state.score} Tickets</p>
           </div>
           <div id="storeArea">
-            <p onClick={() => this.boughtKrisCallBack()}>click me to buy a kris for {this.state.krisCost} tickets</p>
-            <div id="krises">
-              {/* <img class="kris"src={KrisImage}/> */}
-              <div class="table">
-                <ul class="horizontal-list">
-                  {this.state.krises.map((value, index) => {
-                    return <li key={index}>{value}</li>
-                  })}
-                </ul>
+            <div id="KrisArea">
+              <p onClick={() => this.boughtKrisCallBack()}>click me to buy a kris for {this.state.krisCost} tickets</p>
+              <div id="krises">
+                <div class="table">
+                  <ul class="horizontal-list">
+                    {this.state.krises.map((value, index) => {
+                      return <li key={index}>{value}</li>
+                    })}
+                  </ul>
+                </div>
+                <p>kris count: {this.state.krisCount}</p>
               </div>
-              <p>kris count: {this.state.krisCount}</p>
+              <div id="StottsArea">
+                <p onClick={() => this.boughtStottsCallBack()}>click me to buy a Stotts for {this.state.stottsCost} tickets</p>
+                <div id="stottses">
+                  <div class="table">
+                    <ul class="horizontal-list">
+                      {this.state.stotts.map((value, index) => {
+                        return <li key={index}>{value}</li>
+                      })}
+                    </ul>
+                  </div>
+                  <p>stotts count: {this.state.stottsCount}</p>
+                </div>
+              </div>
+              <div id="MontekArea">
+                <p onClick={() => this.boughtMontekCallBack()}>click me to buy a Montek for {this.state.montekCost} tickets</p>
+                <div id="monteks">
+                  <div class="table">
+                    <ul class="horizontal-list">
+                      {this.state.montek.map((value, index) => {
+                        return <li key={index}>{value}</li>
+                      })}
+                    </ul>
+                  </div>
+                  <p>montek count: {this.state.montekCount}</p>
+                </div>
+              </div>
+              <div id="JeffayArea">
+                <p onClick={() => this.boughtJeffayCallBack()}>click me to buy a Jeffay for {this.state.jeffayCost} tickets</p>
+                <div id="jeffays">
+                  <div class="table">
+                    <ul class="horizontal-list">
+                      {this.state.jeffay.map((value, index) => {
+                        return <li key={index}>{value}</li>
+                      })}
+                    </ul>
+                  </div>
+                  <p>jeffay count: {this.state.jeffayCount}</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

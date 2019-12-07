@@ -44,6 +44,18 @@ ul.horizontal-list li {
   /* transform: scale(0.3); */
 }
 
+.stotts {
+  height:75px;
+}
+
+.montek {
+  height: 75px;
+}
+
+.jeffay {
+  height: 75px;
+}
+
 .App-header {
   background-color: #222;
   padding: 20px;
