@@ -16,7 +16,7 @@ export async function login({name, pass}) {
 
 export async function createAccount({name, pass}) {
   try {
-    await axios.post(`/create`, {name, pass});
+    await axios.post(`/create`, {name: name, pass: pass});
     return true;
   } catch (error) {
     return false;

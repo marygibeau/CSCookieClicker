@@ -5,7 +5,8 @@ import KrisImage from "../assets/kris.png";
 // import KMPButton from './KMPButton';
 // import Score from './Score';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { login, createAccount } from "./Account.js";
+import CreateAccount from "./CreateAccount";
+import Login from "./Login";
 
 class App extends Component {
 
@@ -106,7 +107,7 @@ class App extends Component {
 
           <hr />
 
-          <Route exact path="/" component={Login} />
+          <Route exact path="/" component={LoginPage} />
           <Route path="/about" component={About} />
           <Route path="/game" component={Game} />
         </div>
@@ -115,50 +116,10 @@ class App extends Component {
   }
 }
 
-const Login = () => (
+const LoginPage = () => (
   <div>
-    <div className="login">
-      <h2>Login</h2>
-      <form onSubmit={async event => {
-        event.preventDefault();
-        const name = event.target.username.value;
-        const pass = event.target.password.value;
-        if (await login({ name, pass })) {
-          console.log('logged in');
-          window.location.reload();
-        } else {
-          console.log('failed')
-        }
-
-      }}>
-        <div className="field">
-          <input id="username" className="input" placeholder="Username" type="text" name="username" />
-        </div>
-        <div className="field">
-          <input id="password" className="input" placeholder="Password" type="password" name="password" />
-        </div>
-        <input id="submitbutton" className="button is-primary" type="submit" value="Login" />
-      </form>
-    </div>
-
-
-    <div className="box has-background-white content">
-      <h2 className="has-text-dark">Create Account</h2>
-      <form onSubmit={async (e) => {
-        e.preventDefault();
-        const name = e.target.name.value;
-        const pass = e.target.pass.value;
-        await createAccount({ name, pass });
-      }}>
-        <div className="field">
-          <input className="input" placeholder="Username" type="text" name="name" />
-        </div>
-        <div className="field">
-          <input className="input" placeholder="Password" type="password" name="pass" />
-        </div>
-        <input className="button is-primary" type="submit" value={"Create"} />
-      </form>
-    </div>
+    <Login/>
+    <CreateAccount/>
   </div>
 
 );
