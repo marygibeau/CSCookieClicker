@@ -111,9 +111,9 @@ class App extends Component {
 
     const Game = () => (
       <div className="App">
-        <div class="wrapper">
-          <div class="text-group">
-            <h1 class="chrome-text">CS</h1>
+        <div className="wrapper">
+          <div className="text-group">
+            <h1 className="chrome-text">CS</h1>
             <h3 class="pink-text">Clicker</h3>
           </div>
         </div>

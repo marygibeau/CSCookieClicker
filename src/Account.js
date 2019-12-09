@@ -13,12 +13,15 @@ export async function login({name, pass}) {
     return false;
   }
 }
-
+//`/create`, {name: name, pass: pass}
 export async function createAccount({name, pass}) {
   try {
-    await axios.post(`/create`, {name: name, pass: pass});
+    console.log("creating account");
+    await axios.post('/create', {"name": name, "pass": pass, "data": {}});
+    // console.log(result);
     return true;
   } catch (error) {
+    console.log(error);
     return false;
   }
 }
