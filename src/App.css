@@ -1,3 +1,63 @@
+@import url(https://fonts.googleapis.com/css?family=Mr+Dafoe);
+@import url(https://fonts.googleapis.com/css?family=Titillium+Web:900);
+
+body {
+  background-color: #b392c9;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.text-group {
+  
+  position: relative;
+  width: 900px;
+  margin: 0 auto;
+}
+
+.wrapper {
+  background: #4b0081;
+  padding-bottom: 120px;
+  margin-left: -300px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: #290047;
+}
+
+.chrome-text {
+  position: relative;
+  background-image: -webkit-linear-gradient(#378DBC 0%, #B6E8F1 46%, #ffffff 50%, #32120E 54%, #FFC488 58%, #582C11 90%, #EC9B4E 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: 4px #f5f5f5;
+  font-size: 200px;
+  font-family: 'Titillium Web', sans-serif;
+  font-style: italic;
+  margin: 0;
+  line-height: 1;
+}
+
+.pink-text {
+  position: absolute;
+  margin: 0px;
+  font-family: 'Mr Dafoe', cursive;
+  font-size: 160px;
+  color: #F975F7 ;
+  transform:rotate(-15deg);
+  -ms-transform:rotate(-15deg); /* IE 9 */
+  -webkit-transform:rotate(-15deg); /* Safari and Chrome */
+  margin-left: 400px;
+  margin-top: -120px;
+  -webkit-text-stroke: 3px #f008b7;
+  -webkit-filter: drop-shadow(2px 2px 20px #f008b7);
+  z-index: 20;
+}
+
+@-webkit-keyframes chrome_effect {
+  0% {background-position:-680px 0;}
+  10% {background-position:420px 0;}
+  100% {background-position:420px 0;}
+}
+
 .App {
   text-align: center;
 }
@@ -57,12 +117,21 @@ ul.horizontal-list li {
 }
 
 .App-header {
-  background-color: #222;
-  padding: 20px;
+  background-color: rgb(145, 202, 240);
+  padding: 60px;
   color: white;
 }
 
 .App-intro {
   font-size: xx-large;
   font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.content-text {
+  color: white; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: black;
+  font-family: 'Titillium Web', sans-serif;
+  font-style: italic;
+  font-size: 25px;
 }

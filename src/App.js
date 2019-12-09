@@ -111,17 +111,20 @@ class App extends Component {
 
     const Game = () => (
       <div className="App">
-        <div class="App-header">
-          <p class="App-intro">Welcome to UNC CS Clicker</p>
+        <div class="wrapper">
+          <div class="text-group">
+            <h1 class="chrome-text">CS</h1>
+            <h3 class="pink-text">Clicker</h3>
+          </div>
         </div>
         <div id="gameSpace">
           <div id="buttonArea">
             <img id="kmpbutton" src={KMPImage} onClick={() => this.KMPClickCallback()} alt={"kmp button"} />
-            <p>{this.state.score} Tickets</p>
+            <p class="content-text">{this.state.score} Tickets</p>
           </div>
           <div id="storeArea">
             <div id="KrisArea">
-              <p onClick={() => this.boughtKrisCallBack()}>click me to buy a kris for {this.state.krisCost} tickets</p>
+              <p class="content-text" onClick={() => this.boughtKrisCallBack()}>click me to buy a kris for {this.state.krisCost} tickets</p>
               <div id="krises">
                 <div class="table">
                   <ul class="horizontal-list">
@@ -130,10 +133,10 @@ class App extends Component {
                     })}
                   </ul>
                 </div>
-                <p>kris count: {this.state.krisCount}</p>
+                <p class="content-text">Kris count: {this.state.krisCount}</p>
               </div>
               <div id="StottsArea">
-                <p onClick={() => this.boughtStottsCallBack()}>click me to buy a Stotts for {this.state.stottsCost} tickets</p>
+                <p class="content-text" onClick={() => this.boughtStottsCallBack()}>click me to buy a Stotts for {this.state.stottsCost} tickets</p>
                 <div id="stottses">
                   <div class="table">
                     <ul class="horizontal-list">
@@ -142,11 +145,11 @@ class App extends Component {
                       })}
                     </ul>
                   </div>
-                  <p>stotts count: {this.state.stottsCount}</p>
+                  <p class="content-text">Stotts count: {this.state.stottsCount}</p>
                 </div>
               </div>
               <div id="MontekArea">
-                <p onClick={() => this.boughtMontekCallBack()}>click me to buy a Montek for {this.state.montekCost} tickets</p>
+                <p class="content-text" onClick={() => this.boughtMontekCallBack()}>click me to buy a Montek for {this.state.montekCost} tickets</p>
                 <div id="monteks">
                   <div class="table">
                     <ul class="horizontal-list">
@@ -155,11 +158,11 @@ class App extends Component {
                       })}
                     </ul>
                   </div>
-                  <p>montek count: {this.state.montekCount}</p>
+                  <p class="content-text">Montek count: {this.state.montekCount}</p>
                 </div>
               </div>
               <div id="JeffayArea">
-                <p onClick={() => this.boughtJeffayCallBack()}>click me to buy a Jeffay for {this.state.jeffayCost} tickets</p>
+                <p class="content-text" onClick={() => this.boughtJeffayCallBack()}>click me to buy a Jeffay for {this.state.jeffayCost} tickets</p>
                 <div id="jeffays">
                   <div class="table">
                     <ul class="horizontal-list">
@@ -168,7 +171,7 @@ class App extends Component {
                       })}
                     </ul>
                   </div>
-                  <p>jeffay count: {this.state.jeffayCount}</p>
+                  <p class="content-text">Jeffay count: {this.state.jeffayCount}</p>
                 </div>
               </div>
             </div>
