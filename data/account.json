@@ -3,6 +3,10 @@
     "nat": {
       "passwordHash": "$2a$10$7v5R4DFNZv7FmYedeLcC..ggpseJphpE5nW7pmmy1vFTkVU8dk./i",
       "data": {}
+    },
+    "rat": {
+      "passwordHash": "$2a$10$oFpm9aP/PPEaqMCCX6SW8eqap7U4GoGOeqm5esF2YqttwsoukcaC2",
+      "data": {}
     }
   }
 }

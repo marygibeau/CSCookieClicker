@@ -1,6 +1,6 @@
 import React from 'react';
 import {login} from "./Account";
-
+let confirmation = "";
 function Login() {
     return (
     <div className="login">
@@ -11,9 +11,11 @@ function Login() {
           const pass = event.target.password.value;
           if (await login({ name, pass })) {
             console.log('logged in');
-            window.location.reload();
+            //window.location.reload();
+            confirmation = "Logged in!";
           } else {
-            console.log('failed')
+            console.log('failed');
+            confirmation = "Error signing in :(";
           }
   
         }}>
@@ -25,6 +27,7 @@ function Login() {
           </div>
           <input id="submitbutton" className="button is-primary" type="submit" value="Login" />
         </form>
+        <p>{confirmation}</p>
       </div>
       );
   }

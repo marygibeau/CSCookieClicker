@@ -5,7 +5,7 @@ const axios = getAxiosInstance('/account');
 
 export async function login({name, pass}) {
   try {
-    const res = await axios.post(`/login`, {name, pass});
+    const res = await axios.post(`/login`, {"name": name, "pass": pass, "data": {}});
     const jwt = res.data.jwt;
     setToken(jwt);
     return true;
