@@ -5,6 +5,7 @@ import KrisImage from "../assets/kris.png";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import CreateAccount from "./CreateAccount";
 import Login from "./Login";
+import Info from "./Info";
 import StottsImage from "../assets/stotts.png";
 import MontekImage from "../assets/montek.png";
 import JeffayImage from "../assets/jeffay.png";
@@ -103,12 +104,6 @@ class App extends Component {
 
   render() {
 
-    const About = () => (
-      <div>
-        <h2>About</h2>
-      </div>
-    );
-
     const Game = () => (
       <div className="App">
         <div className="wrapper">
@@ -197,7 +192,7 @@ class App extends Component {
           <hr />
 
           <Route exact path="/" component={LoginPage} />
-          <Route path="/about" component={About} />
+          <Route path="/about" component={Info} />
           <Route path="/game" component={Game} />
         </div>
       </Router>
@@ -213,6 +208,10 @@ const LoginPage = () => (
 
 );
 
-
+const Info = () => (
+  <div>
+    <Info/>
+  </div>
+);
 
 export default App;
