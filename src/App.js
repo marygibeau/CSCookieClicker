@@ -182,7 +182,7 @@ class App extends Component {
               <Link to="/">Login</Link>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <Link to="/info">Info</Link>
             </li>
             <li>
               <Link to="/game">Game</Link>
@@ -192,7 +192,7 @@ class App extends Component {
           <hr />
 
           <Route exact path="/" component={LoginPage} />
-          <Route path="/about" component={Info} />
+          <Route path="/info" component={InfoPage} />
           <Route path="/game" component={Game} />
         </div>
       </Router>
@@ -208,7 +208,7 @@ const LoginPage = () => (
 
 );
 
-const Info = () => (
+const InfoPage = () => (
   <div>
     <Info/>
   </div>
