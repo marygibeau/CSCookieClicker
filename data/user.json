@@ -1,2 +1,8 @@
 {
+  "nat": {
+    "player": {
+      "lifetimeTickets": 0,
+      "currentTickets": 0
+    }
+  }
 }

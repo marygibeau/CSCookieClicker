@@ -7,6 +7,34 @@
     "rat": {
       "passwordHash": "$2a$10$oFpm9aP/PPEaqMCCX6SW8eqap7U4GoGOeqm5esF2YqttwsoukcaC2",
       "data": {}
+    },
+    "jerbear": {
+      "passwordHash": "$2a$10$rok327NHG6dM2Mo8yQsXD.9WJEcuXBkv7ko50Yr8f8kAvn6S5W846",
+      "data": {}
+    },
+    "test": {
+      "passwordHash": "$2a$10$7KbAV2pOwtuPbBdhy.ah9uZSRN042zrbZ72rRkCOzedq35DQnsm0m",
+      "data": {}
+    },
+    "test2": {
+      "passwordHash": "$2a$10$kzXMwB7QXFe3pmZXrLvD2O.wnVMRoen2n/8TARyJYrF7v1SAKUXu6",
+      "data": {}
+    },
+    "ratty": {
+      "passwordHash": "$2a$10$tqGZPu4o4b1ohDL7XG.TDuwQuVdOGavTCZA2fgM7FQ5QjuOGRKQFC",
+      "data": {}
+    },
+    "natalier": {
+      "passwordHash": "$2a$10$oRQRTmPI/F9KJ.jl/6/g/.y4r4iDAY5dGbYzR8IZXfoXdEljgGqvO",
+      "data": {}
+    },
+    "nattest": {
+      "passwordHash": "$2a$10$ht3K2kW4bDpnOVUy24pCxufTCULAkXIUzn3vpsIp7p1AIzg4Fvw6K",
+      "data": {}
+    },
+    "ratatouille": {
+      "passwordHash": "$2a$10$uTKYtKPqiqlJwNIIyECore5zn2LyLnjjqzMAa2eh8XEFaCYCPSi7.",
+      "data": {}
     }
   }
 }

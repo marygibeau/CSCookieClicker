@@ -1,13 +1,22 @@
-import {setToken} from "./config/Token";
-import {getAxiosInstance} from "./config/Axios";
+import { getToken } from "./config/Token";
+import { getAxiosInstance } from "./config/Axios";
 
-const axios = getAxiosInstance('/user');
 
 export async function createTicketCount(name) {
+    const axios = getAxiosInstance('/user');
+    console.log("createTicketCount");
+    // console.log(getToken())
     try {
-    //   const res = await axios.post(`/login`, {"name": name, "pass": pass, "data": {}});
-      return true;
+        await axios.post(`/player`, {
+            "name": name, 
+            "Authorization": "Bearer " + getToken(), 
+            "data": {
+                "lifetimeTickets": 0,
+                "currentTickets": 0
+            }
+        });
+        return true;
     } catch (error) {
-      return false;
+        return false;
     }
-  }
+}

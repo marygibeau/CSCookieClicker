@@ -9,6 +9,7 @@ export async function login({name, pass}) {
     const res = await axios.post(`/login`, {"name": name, "pass": pass, "data": {}});
     const jwt = res.data.jwt;
     setToken(jwt);
+    createTicketCount(name);
     return true;
   } catch (error) {
     return false;
@@ -20,8 +21,6 @@ export async function createAccount({name, pass}) {
     console.log("creating account");
     await axios.post('/create', {"name": name, "pass": pass, "data": {}});
     // console.log(result);
-    createTicketCount(name);
-    await axios.post()
     return true;
   } catch (error) {
     console.log(error);

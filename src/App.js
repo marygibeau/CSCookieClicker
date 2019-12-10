@@ -95,7 +95,7 @@ class App extends Component {
         krisCost: this.state.krisCost + (1.5 * (this.state.krisCount + 1))
       });
     } else {
-      alert("not enough tickets to bribe a Kris for help");
+      // alert("not enough tickets to bribe a Kris for help");
     }
   }
 
