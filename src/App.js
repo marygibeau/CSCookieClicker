@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import CreateAccount from "./CreateAccount";
 import Login from "./Login";
 import Info from "./Info";
+import Leaderboard from "./Leaderboard";
 import StottsImage from "../assets/stotts.png";
 import MontekImage from "../assets/montek.png";
 import JeffayImage from "../assets/jeffay.png";
@@ -187,6 +188,9 @@ class App extends Component {
             <li>
               <Link to="/game">Game</Link>
             </li>
+            <li>
+              <Link to="/leaderboard">Leaderboard</Link>
+            </li>
           </ul>
 
           <hr />
@@ -194,6 +198,7 @@ class App extends Component {
           <Route exact path="/" component={LoginPage} />
           <Route path="/info" component={InfoPage} />
           <Route path="/game" component={Game} />
+          <Route path="/leaderboard" component={LeaderboardPage} />
         </div>
       </Router>
     );
@@ -211,6 +216,12 @@ const LoginPage = () => (
 const InfoPage = () => (
   <div>
     <Info/>
+  </div>
+);
+
+const LeaderboardPage = () => (
+  <div>
+    <Leaderboard/>
   </div>
 );
 

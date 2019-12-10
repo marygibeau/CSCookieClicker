@@ -1,5 +1,6 @@
 import {setToken} from "./config/Token";
 import {getAxiosInstance} from "./config/Axios";
+import {createTicketCount} from "./User";
 
 const axios = getAxiosInstance('/account');
 
@@ -19,6 +20,8 @@ export async function createAccount({name, pass}) {
     console.log("creating account");
     await axios.post('/create', {"name": name, "pass": pass, "data": {}});
     // console.log(result);
+    createTicketCount(name);
+    await axios.post()
     return true;
   } catch (error) {
     console.log(error);
