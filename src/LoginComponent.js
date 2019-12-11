@@ -10,7 +10,8 @@ function Login() {
           <h3 class="pink-text">Clicker</h3>
         </div>
       </div>
-      <h2>Login</h2>
+      <div class="div-pad">
+      <h2 class="title-text">Login</h2>
       <form onSubmit={async event => {
         event.preventDefault();
         const name = event.target.username.value;
@@ -34,6 +35,7 @@ function Login() {
         <input id="submitbutton" className="button is-primary" type="submit" value="Login" />
       </form>
       <p>{confirmation}</p>
+      </div>
     </div>
   );
 }
