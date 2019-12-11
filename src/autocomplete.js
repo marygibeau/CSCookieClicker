@@ -104,6 +104,3 @@ function autocomplete(inp, arr) {
 let professors = ["KMP", "Kris", "Plaisted", "Montek", "Jeffay", "Jeffrey", "Stotts",
     "Bishop", "Dewan", "Fuchs", "Joseph-Nicholas", "McMillan", "Pozefsky", "Snoeyink"
 ];
-
-/*initiate the autocomplete function on the "myInput" element, and pass along the professors array as possible autocomplete values:*/
-// autocomplete(document.getElementById("myInput"), professors);

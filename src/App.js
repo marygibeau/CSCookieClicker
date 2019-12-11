@@ -5,6 +5,7 @@ import KrisImage from "../assets/kris.png";
 import StottsImage from "../assets/stotts.png";
 import MontekImage from "../assets/montek.png";
 import JeffayImage from "../assets/jeffay.png";
+import Autocomplete from "./AutocompleteForm";
 
 class App extends Component {
 
@@ -105,17 +106,17 @@ class App extends Component {
           <p class="App-intro">Welcome to UNC CS Clicker</p>
         </div>
 
-        <h2>Search for professors to get more cookies!</h2>
+        <div class="profSearch">
+        <h2>Search for `more professors to get cookies!</h2>
+
         <form autocomplete="off" action="/action_page.php">
-          <div class="autocomplete">
-              <input id="myInput" type="text" name="myCountry" placeholder="Professor Name"></input>
-          </div>
-          <input type="submit"></input>
+            <div class="autocomplete" style="width:300px;">
+                <input id="myInput" type="text" name="profWidget" placeholder="Professor Name"/>
+            </div>
+            <input type="submit"/>
         </form>
-      <script>
-        autocomplete(document.getElementById("myInput"), professors);
-        </script>
-        
+        </div>
+
         <div id="gameSpace">
           <div id="buttonArea">
             <img id="kmpbutton" src={KMPImage} onClick={() => this.KMPClickCallback()} alt={"kmp button"} />
@@ -180,5 +181,12 @@ class App extends Component {
     );
   }
 }
+
+// const searchBar = () => (
+//   <div>
+//     <Autocomplete/>
+//   </div>
+// );
+
 
 export default App;
