@@ -35,6 +35,14 @@
     "ratatouille": {
       "passwordHash": "$2a$10$uTKYtKPqiqlJwNIIyECore5zn2LyLnjjqzMAa2eh8XEFaCYCPSi7.",
       "data": {}
+    },
+    "mary": {
+      "passwordHash": "$2a$10$zLvO7MigzfTirwq5FJQeWuStluMlceqg9zNiqdWg.CBBtyHoONSJe",
+      "data": {}
+    },
+    "mary2": {
+      "passwordHash": "$2a$10$nMYv.RE4Bdf0QovK1uqkw.T0OdnndKqD8wdqlM.O.fBapx6x7rqmG",
+      "data": {}
     }
   }
 }

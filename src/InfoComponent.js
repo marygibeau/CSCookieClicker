@@ -22,12 +22,6 @@ function BuildComments() {
 function Info() {
     return (
         <div>
-            <div className="wrapper">
-                <div className="text-group">
-                    <h1 className="chrome-text">CS</h1>
-                    <h3 class="pink-text">Clicker</h3>
-                </div>
-            </div>
             <div>
                 <h2>About the Game</h2>
                 <p>This is CS Cookie Clicker, a spicy hot take on the classic <a href="https://orteil.dashnet.org/cookieclicker/">Cookie Clicker</a> game. </p>

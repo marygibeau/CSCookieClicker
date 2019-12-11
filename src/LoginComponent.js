@@ -1,7 +1,8 @@
 import React from 'react';
 import {login} from "./Account";
 let confirmation = "";
-function Login() {
+function Login(props) {
+  console.log(props);
     return (
     <div className="login">
         <h2>Login</h2>
@@ -11,6 +12,7 @@ function Login() {
           const pass = event.target.password.value;
           if (await login({ name, pass })) {
             console.log('logged in');
+            props.callbackFromParent({"name": name});
             //window.location.reload();
             confirmation = "Logged in!";
           } else {
