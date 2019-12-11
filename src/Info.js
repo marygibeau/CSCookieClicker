@@ -1,14 +1,14 @@
 import React from 'react';
-import {postReview, getReviews} from "./Private";
+import {postComment, getComments} from "./Private";
 
-function BuildReviews() {
-    let reviews = getReviews().data;
-    console.log("result of getReviews: " + reviews);
+function BuildComments() {
+    let comments = getComments().data;
+    console.log("result of getComments: " + comments);
     let result = ``;
-    if (reviews !== null && reviews !== undefined ) {
+    if (comments !== null && comments !== undefined ) {
         // loop through reviews and append html to result
-        Object.keys(reviews).forEach(function(key) {
-            result += `<div><h4>` + reviews[key].name + `</h4><p>` + reviews[key].text +  `</p></div>`;
+        Object.keys(comments).forEach(function(key) {
+            result += `<div><h4>` + comments[key].name + `</h4><p>` + comments[key].text +  `</p></div>`;
         });
         // for (rev in reviews) {
         //     // name is res.name, comment is res.text
@@ -32,22 +32,22 @@ function Info() {
                 <h2>Forum</h2>
                 <form onSubmit={async (e) => {
                     e.preventDefault();
-                    const rev = e.target.review.value;
-                    if (await postReview(rev)) {
+                    const com = e.target.comment.value;
+                    if (await postComment(com)) {
                         console.log("Comment posted!");
                         window.location.reload();
                     } else {
                         console.log("Comment failed :(");
                     }
                 }}>
-                    <textarea name="review"></textarea> <br></br>
+                    <textarea name="comment"></textarea> <br></br>
                     <input className="button is-primary" type="submit" value={"Comment"} />
                 </form>
 
-                <h3>Other Reviews</h3>
-                <div id="reviews">
+                <h3>Other Comments</h3>
+                <div id="comments">
                     {/* previous reviews here */}
-                    <BuildReviews/>
+                    <BuildComments/>
                 </div>
             </div>
         </div>
