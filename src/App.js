@@ -6,6 +6,7 @@ import KrisImage from "../assets/kris.png";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import CreateAccount from "./CreateAccount";
 import Login from "./Login";
+import Logout from "./Logout";
 import Info from "./Info";
 import Leaderboard from "./Leaderboard";
 import StottsImage from "../assets/stotts.png";
@@ -210,6 +211,7 @@ const LoginPage = () => (
   <div>
     <Login/>
     <CreateAccount/>
+    <Logout/>
   </div>
 
 );
@@ -225,5 +227,6 @@ const LeaderboardPage = () => (
     <Leaderboard/>
   </div>
 );
+
 
 export default App;
