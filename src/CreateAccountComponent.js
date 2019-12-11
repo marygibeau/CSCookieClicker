@@ -4,8 +4,8 @@ import { initializeTicketCount } from "./User"
 let confirmation = "";
 function CreateAccount(props) {
   return (
-    <div className="box has-background-white content">
-      <h3 className="has-text-dark">Create Account</h3>
+    <div class="div-pad">
+      <h3 class="title-text">Create Account</h3>
       <form onSubmit={async (e) => {
         e.preventDefault();
         const name = e.target.name.value;
@@ -15,7 +15,7 @@ function CreateAccount(props) {
           // log the user in
           if (login({ name, pass })) {
             initializeTicketCount(name);
-            props.callbackFromParent({"name": name});
+            props.callbackFromParent({ "name": name });
           } else {
             alert("log in failed");
           }

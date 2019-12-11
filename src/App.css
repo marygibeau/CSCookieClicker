@@ -7,6 +7,10 @@ body {
   background-size: cover;
 }
 
+.div-pad {
+  padding-left: 30px
+}
+
 .text-group {
   
   position: relative;
@@ -92,6 +96,7 @@ body {
 }
 
 #gameSpace {
+  padding-top: 30px;
   display: flex;
   flex-flow: row;
   height: 100%;
@@ -119,20 +124,7 @@ ul.horizontal-list li {
   display: inline;
 }
 
-.kris {
-  height: 75px;
-  /* transform: scale(0.3); */
-}
-
-.stotts {
-  height:75px;
-}
-
-.montek {
-  height: 75px;
-}
-
-.jeffay {
+.kris, .stotts, .montek, .jeffay {
   height: 75px;
 }
 
@@ -156,7 +148,52 @@ ul.horizontal-list li {
   font-size: 25px;
 }
 
-input {
+.title-text {
+  color: white; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: black;
+  font-family: 'Titillium Web', sans-serif;
+  font-style: italic;
+  font-size: 40px;
+}
+
+.buyButton {
+  display: inline-block;
+  padding: 5px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4b0081;
+  border-radius: 15px;
+  box-shadow: 0 9px rgb(121, 121, 121);
+}
+
+.buyButton:hover {
+  background-color: #290047;
+}
+
+.buyButton:active {
+  background-color: #290047;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+/* For autocomplete search bar and pop-up in InfoComponent */
+.exampleKris, .exampleStotts, .exampleMontek, .exampleJeffay, .exampleKMP {
+  height: 150px;
+  padding-top: 3%;
+}
+
+.searchBar {
+  font-size: 120%;
+  text-align: center;
+}
+
+
+.profSearch input {
   border: 1px solid #4b0081;
   padding: 0.5rem;
   width: 300px;
@@ -168,6 +205,7 @@ input {
 }
 
 .suggestions {
+  display:inline-table;
   border: 1px solid #4b0081;
   border-top-width: 0;
   list-style: none;
@@ -180,6 +218,7 @@ input {
 
 .suggestions li {
   padding: 0.5rem;
+  text-align: center;
 }
 
 .suggestion-active,
@@ -190,4 +229,15 @@ input {
 
 .suggestions li:not(:last-of-type) {
   border-bottom: 1px solid #4b0081;
+}
+
+.profInfo {
+  text-align: center;
+}
+
+.profSearch {
+  width: 80%;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
 }

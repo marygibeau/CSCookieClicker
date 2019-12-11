@@ -1,12 +1,17 @@
 import React from 'react';
 import './App.css';
 import KMPImage from "../assets/kmp_button.png";
+import KMPImage from "../assets/kmp_button.png";
+import SnowKMPImage from "../assets/kmp_button_snow.png";
+import KrisImage from "../assets/kris.png";
 import KrisImage from "../assets/kris.png";
 import StottsImage from "../assets/stotts.png";
 import MontekImage from "../assets/montek.png";
 import JeffayImage from "../assets/jeffay.png";
 import checkLoggedIn from "./Private";
 import { updateTicketCount, deleteTicketCount } from "./User";
+
+let KMP = KMPImage;
 
 const krisTPS = 0.5;
 const stottsTPS = 5;
@@ -49,9 +54,21 @@ class Game extends React.Component {
         clearInterval(this.interval);
     }
 
+    getWeather() {
+        fetch('http://api.openweathermap.org/data/2.5/weather?zip=27514&APPID=9b480b2d714bad8368d57be060e9ac29&units=imperial').then(result => {
+            return result.json();
+        }).then(result => {
+            this.state.temperature = result.main.temp;
+            if (this.state.temperature <= 32) {
+                KMP = SnowKMPImage;
+            }
+        })
+    }
+
     async initializeState() {
         console.log("initializing state");
         loggedIn = await checkLoggedIn();
+        this.getWeather();
         // oldScore = await callToServer...
         // find out time since last log in and calculate points from automatic score generating items
         // accumulatedPoints = timeSinceLastLoginInSeconds * pointsPerSecond

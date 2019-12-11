@@ -22,25 +22,37 @@ function BuildComments() {
 function Info() {
     return (
         <div>
+<<<<<<< HEAD
             <div>
                 <h2>About the Game</h2>
+=======
+            <div className="wrapper">
+                <div className="text-group">
+                    <h1 className="chrome-text">CS</h1>
+                    <h3 class="pink-text">Clicker</h3>
+                </div>
+            </div>
+            <div class="div-pad"> 
+                <h2 class="title-text">About the Game</h2>
+>>>>>>> e1fa8e597322d34256e5759710612801007f9c32
                 <p>This is CS Cookie Clicker, a spicy hot take on the classic <a href="https://orteil.dashnet.org/cookieclicker/">Cookie Clicker</a> game. </p>
                 <p>Our version is based on the faculty of the UNC Computer Science Department, and clicking their faces earns you tickets to the <a href="http://hootpage.com">Mike Watt</a> concert in October 2019!</p>
                 <p>Here's more information about the tickets you can earn when you click on each professor's face: </p>
-                <h2>Search for professors to learn about them!</h2>
+                <div className="searchBar">Search for professors to learn about them!</div>
                 <div>
                     <Autocomplete
                         suggestions={[
                         "Kris",
                         "Stotts",
                         "Montek",
-                        "Jeffay"
+                        "Jeffay",
+                        "KMP"
                         ]}
                     />
                 </div>
             </div>
-            <div>
-                <h2>Forum</h2>
+            <div class="div-pad">
+                <h2 class="title-text">Forum</h2>
                 <form onSubmit={async (e) => {
                     e.preventDefault();
                     const com = e.target.comment.value;
@@ -55,7 +67,7 @@ function Info() {
                     <input className="button is-primary" type="submit" value={"Comment"} />
                 </form>
 
-                <h3>Other Comments</h3>
+                <h3 class="title-text">Other Comments</h3>
                 <div id="comments">
                     {/* previous reviews here */}
 
