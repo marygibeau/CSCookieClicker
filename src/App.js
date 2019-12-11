@@ -109,9 +109,9 @@ class App extends Component {
 
     const Game = () => (
       <div className="App">
-        <div className="wrapper">
-          <div className="text-group">
-            <h1 className="chrome-text">CS</h1>
+        <div class="wrapper">
+          <div class="text-group">
+            <h1 class="chrome-text">CS</h1>
             <h3 class="pink-text">Clicker</h3>
           </div>
         </div>
@@ -179,29 +179,26 @@ class App extends Component {
     );
     return (
       <Router>
-        <div>
-          <ul>
-            <li>
-              <Link to="/">Login</Link>
+        <div class="nav-div">
+          <ul class="nav-bar">
+            <li class="nav-link">
+              <Link class="link" to="/">Login</Link>
             </li>
-            <li>
-              <Link to="/info">Info</Link>
+            <li class="nav-link">
+              <Link class="link" to="/info">Info</Link>
             </li>
-            <li>
-              <Link to="/game">Game</Link>
+            <li class="nav-link">
+              <Link class="link" to="/game">Game</Link>
             </li>
-            <li>
-              <Link to="/leaderboard">Leaderboard</Link>
+            <li class="nav-link">
+              <Link class="link" to="/leaderboard">Leaderboard</Link>
             </li>
           </ul>
-
-          <hr />
-
-          <Route exact path="/" component={LoginPage} />
-          <Route path="/info" component={InfoPage} />
-          <Route path="/game" component={Game} />
-          <Route path="/leaderboard" component={LeaderboardPage} />
         </div>
+        <Route exact path="/" component={LoginPage} />
+        <Route path="/info" component={InfoPage} />
+        <Route path="/game" component={Game} />
+        <Route path="/leaderboard" component={LeaderboardPage} />
       </Router>
     );
   }

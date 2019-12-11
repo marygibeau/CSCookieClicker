@@ -1,9 +1,18 @@
 import React from 'react';
-import {login} from "./Account";
+import { login } from "./Account";
+import './App.css';
 let confirmation = "";
 function Login() {
-    return (
+  return (
+
     <div className="login">
+      <div class="wrapper">
+        <div class="text-group">
+          <h1 class="chrome-text">CS</h1>
+          <h3 class="pink-text">Clicker</h3>
+        </div>
+      </div>
+      <div>
         <h2>Login</h2>
         <form onSubmit={async event => {
           event.preventDefault();
@@ -17,7 +26,7 @@ function Login() {
             console.log('failed');
             confirmation = "Error signing in :(";
           }
-  
+
         }}>
           <div className="field">
             <input id="username" className="input" placeholder="Username" type="text" name="username" />
@@ -29,7 +38,8 @@ function Login() {
         </form>
         <p>{confirmation}</p>
       </div>
-      );
-  }
+    </div>
+  );
+}
 
 export default Login;
