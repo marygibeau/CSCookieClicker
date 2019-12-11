@@ -1,14 +1,15 @@
 import React from 'react';
-import {postComment, getComments} from "./Private";
+import { postComment, getComments } from "./Private";
+import Autocomplete from "./Autocomplete";
 
 function BuildComments() {
     let comments = getComments().data;
     console.log("result of getComments: " + comments);
     let result = ``;
-    if (comments !== null && comments !== undefined ) {
+    if (comments !== null && comments !== undefined) {
         // loop through reviews and append html to result
-        Object.keys(comments).forEach(function(key) {
-            result += `<div><h4>` + comments[key].name + `</h4><p>` + comments[key].text +  `</p></div>`;
+        Object.keys(comments).forEach(function (key) {
+            result += `<div><h4>` + comments[key].name + `</h4><p>` + comments[key].text + `</p></div>`;
         });
         // for (rev in reviews) {
         //     // name is res.name, comment is res.text
@@ -21,12 +22,28 @@ function BuildComments() {
 function Info() {
     return (
         <div>
+            <div className="wrapper">
+                <div className="text-group">
+                    <h1 className="chrome-text">CS</h1>
+                    <h3 class="pink-text">Clicker</h3>
+                </div>
+            </div>
             <div>
                 <h2>About the Game</h2>
                 <p>This is CS Cookie Clicker, a spicy hot take on the classic <a href="https://orteil.dashnet.org/cookieclicker/">Cookie Clicker</a> game. </p>
                 <p>Our version is based on the faculty of the UNC Computer Science Department, and clicking their faces earns you tickets to the <a href="http://hootpage.com">Mike Watt</a> concert in October 2019!</p>
                 <p>Here's more information about the tickets you can earn when you click on each professor's face: </p>
-                {/* Haley: search bar here! */}
+                <h2>Search for professors to learn about them!</h2>
+                <div>
+                    <Autocomplete
+                        suggestions={[
+                        "Kris",
+                        "Stotts",
+                        "Montek",
+                        "Jeffay"
+                        ]}
+                    />
+                </div>
             </div>
             <div>
                 <h2>Forum</h2>
@@ -47,11 +64,13 @@ function Info() {
                 <h3>Other Comments</h3>
                 <div id="comments">
                     {/* previous reviews here */}
-                    <BuildComments/>
+
+                    <BuildComments />
                 </div>
             </div>
         </div>
 
     )
 }
+
 export default Info;
