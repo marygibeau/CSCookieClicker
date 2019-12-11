@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import KMPImage from "../assets/kmp_button.png";
+import SnowKMPImage from "../assets/kmp_button_snow.png";
 import KrisImage from "../assets/kris.png";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import CreateAccount from "./CreateAccount";
@@ -11,6 +12,7 @@ import Info from "./InfoComponent";
 import StottsImage from "../assets/stotts.png";
 import MontekImage from "../assets/montek.png";
 import JeffayImage from "../assets/jeffay.png";
+let KMP = KMPImage;
 
 const krisTPS = 0.5;
 const stottsTPS = 5;
@@ -36,6 +38,7 @@ class App extends Component {
       montekCost: 100,
       jeffayCount: 0,
       jeffayCost: 1000,
+      temperature: 50,
     }
     this.KMPClickCallback.bind(this);
   }
@@ -54,6 +57,7 @@ class App extends Component {
     // accumulatedPoints = timeSinceLastLoginInSeconds * pointsPerSecond
     // newScore = oldScore + accumulatedPoints;
     // this.state.score = newScore;
+    this.getWeather();
   }
 
   boughtJeffayCallBack() {
@@ -101,6 +105,17 @@ class App extends Component {
       // alert("not enough tickets to bribe a Kris for help");
     }
   }
+  
+  getWeather() {
+    fetch('http://api.openweathermap.org/data/2.5/weather?zip=27514&APPID=9b480b2d714bad8368d57be060e9ac29&units=imperial').then(result => {
+      return result.json();
+    }).then(result => {
+      this.state.temperature = result.main.temp;
+      if (this.state.temperature <= 32) {
+        KMP = SnowKMPImage;
+      }
+    })
+  }
 
   KMPClickCallback() {
     this.setState({ score: this.state.score + 1 });
@@ -118,7 +133,7 @@ class App extends Component {
         </div>
         <div id="gameSpace">
           <div id="buttonArea">
-            <img id="kmpbutton" src={KMPImage} onClick={() => this.KMPClickCallback()} alt={"kmp button"} />
+            <img id="kmpbutton" src={KMP} onClick={() => this.KMPClickCallback()} alt={"kmp button"} />
             <p class="content-text">{this.state.score} Tickets</p>
           </div>
           <div id="storeArea">
