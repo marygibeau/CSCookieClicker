@@ -1,5 +1,11 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
+import KMPImage from "../assets/kmp_button.png";
+import KrisImage from "../assets/kris.png";
+import StottsImage from "../assets/stotts.png";
+import MontekImage from "../assets/montek.png";
+import JeffayImage from "../assets/jeffay.png";
+
 
 class Autocomplete extends Component {
   static propTypes = {
@@ -9,6 +15,9 @@ class Autocomplete extends Component {
   static defaultProps = {
     suggestions: []
   };
+
+  profName = "";
+
 
   constructor(props) {
     super(props);
@@ -48,8 +57,9 @@ class Autocomplete extends Component {
       activeSuggestion: 0,
       filteredSuggestions: [],
       showSuggestions: false,
-      userInput: e.currentTarget.innerText
+      userInput: e.currentTarget.innerText,
     });
+    this.profName = e.currentTarget.innerText;
   };
 
   onKeyDown = e => {
@@ -99,7 +109,7 @@ class Autocomplete extends Component {
     if (showSuggestions && userInput) {
       if (filteredSuggestions.length) {
         suggestionsListComponent = (
-          <ul class="suggestions">
+          <ul className="suggestions">
             {filteredSuggestions.map((suggestion, index) => {
               let className;
 
@@ -118,15 +128,46 @@ class Autocomplete extends Component {
         );
       } else {
         suggestionsListComponent = (
-          <div class="no-suggestions">
+          <div className="no-suggestions">
             <em>No suggestions!</em>
           </div>
         );
       }
     }
 
+    let professorPopUp;
+
+    if (this.profName === "Kris") {
+       professorPopUp = (<div className="profInfo">
+            <img className="exampleKris" src={KrisImage} alt="kris example" />
+            <p>Kris gives you .5 tickets per second!</p>
+        </div>);
+    } else if (this.profName === "Stotts") {
+        professorPopUp = (<div className="profInfo">
+            <img className="exampleStotts" src={StottsImage} alt="stotts example" />
+            <p>Stotts gives you 5 tickets per second!</p>
+         </div>);
+    } else if (this.profName === "Montek") {
+        professorPopUp = (<div className="profInfo">
+            <img className="exampleMontek" src={MontekImage} alt="montek example" />
+            <p>Montek gives you 10 tickets per second!</p>
+         </div>);
+    } else if (this.profName === "Jeffay") {
+        professorPopUp = (<div className="profInfo">
+            <img className="exampleJeffay" src={JeffayImage} alt="jeffay example" />
+            <p>Jeffay gives you 50 tickets per second!</p>
+         </div>);
+    } else if (this.profName === "KMP") {
+        professorPopUp = (<div className="profInfo">
+            <img className="exampleKMP" src={KMPImage} alt="kmp example" />
+            <p>KMP gives you 1 ticket each time he is clicked.</p>
+         </div>);
+    }
+
+
+
     return (
-      <Fragment>
+      <div className="profSearch">
         <input
           type="text"
           onChange={onChange}
@@ -134,7 +175,8 @@ class Autocomplete extends Component {
           value={userInput}
         />
         {suggestionsListComponent}
-      </Fragment>
+        {professorPopUp}
+      </div>
     );
   }
 }
