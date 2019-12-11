@@ -4,8 +4,8 @@ import {createTicketCount} from "./User"
 let confirmation = "";
 function CreateAccount() {
     return (
-      <div className="box has-background-white content">
-        <h3 className="has-text-dark">Create Account</h3>
+      <div class="div-pad">
+        <h3 class="title-text">Create Account</h3>
         <form onSubmit={async (e) => {
           e.preventDefault();
           const name = e.target.name.value;

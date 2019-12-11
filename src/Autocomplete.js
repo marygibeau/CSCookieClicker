@@ -109,22 +109,24 @@ class Autocomplete extends Component {
     if (showSuggestions && userInput) {
       if (filteredSuggestions.length) {
         suggestionsListComponent = (
-          <ul className="suggestions">
-            {filteredSuggestions.map((suggestion, index) => {
-              let className;
+          <div>
+            <ul className="suggestions">
+              {filteredSuggestions.map((suggestion, index) => {
+                let className;
 
-              // Flag the active suggestion with a class
-              if (index === activeSuggestion) {
-                className = "suggestion-active";
-              }
+                // Flag the active suggestion with a class
+                if (index === activeSuggestion) {
+                  className = "suggestion-active";
+                }
 
-              return (
-                <li className={className} key={suggestion} onClick={onClick}>
-                  {suggestion}
-                </li>
-              );
-            })}
-          </ul>
+                return (
+                  <li className={className} key={suggestion} onClick={onClick}>
+                    {suggestion}
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
         );
       } else {
         suggestionsListComponent = (
@@ -138,30 +140,30 @@ class Autocomplete extends Component {
     let professorPopUp;
 
     if (this.profName === "Kris") {
-       professorPopUp = (<div className="profInfo">
-            <img className="exampleKris" src={KrisImage} alt="kris example" />
-            <p>Kris gives you .5 tickets per second!</p>
-        </div>);
+      professorPopUp = (<div className="profInfo">
+        <img className="exampleKris" src={KrisImage} alt="kris example" />
+        <p>Kris gives you .5 tickets per second!</p>
+      </div>);
     } else if (this.profName === "Stotts") {
-        professorPopUp = (<div className="profInfo">
-            <img className="exampleStotts" src={StottsImage} alt="stotts example" />
-            <p>Stotts gives you 5 tickets per second!</p>
-         </div>);
+      professorPopUp = (<div className="profInfo">
+        <img className="exampleStotts" src={StottsImage} alt="stotts example" />
+        <p>Stotts gives you 5 tickets per second!</p>
+      </div>);
     } else if (this.profName === "Montek") {
-        professorPopUp = (<div className="profInfo">
-            <img className="exampleMontek" src={MontekImage} alt="montek example" />
-            <p>Montek gives you 10 tickets per second!</p>
-         </div>);
+      professorPopUp = (<div className="profInfo">
+        <img className="exampleMontek" src={MontekImage} alt="montek example" />
+        <p>Montek gives you 10 tickets per second!</p>
+      </div>);
     } else if (this.profName === "Jeffay") {
-        professorPopUp = (<div className="profInfo">
-            <img className="exampleJeffay" src={JeffayImage} alt="jeffay example" />
-            <p>Jeffay gives you 50 tickets per second!</p>
-         </div>);
+      professorPopUp = (<div className="profInfo">
+        <img className="exampleJeffay" src={JeffayImage} alt="jeffay example" />
+        <p>Jeffay gives you 50 tickets per second!</p>
+      </div>);
     } else if (this.profName === "KMP") {
-        professorPopUp = (<div className="profInfo">
-            <img className="exampleKMP" src={KMPImage} alt="kmp example" />
-            <p>KMP gives you 1 ticket each time he is clicked.</p>
-         </div>);
+      professorPopUp = (<div className="profInfo">
+        <img className="exampleKMP" src={KMPImage} alt="kmp example" />
+        <p>KMP gives you 1 ticket each time he is clicked.</p>
+      </div>);
     }
 
 
