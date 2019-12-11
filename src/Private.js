@@ -14,20 +14,20 @@ export async function checkLoggedIn() { // checks to see if user is logged in
     }
 }
 
-export async function postReview(review) {
+export async function postComment(comment) {
     const axios = getAxiosInstance('/private');
     let loggedIn = checkLoggedIn();
 
     if (loggedIn === "") {
         alert("Must be logged in before commenting!");
     } else {
-        console.log("in postReview");
+        console.log("in postComment");
         try {
-            await axios.post(`/review`, {
+            await axios.post(`/comment`, {
                 "Authorization": "Bearer " + getToken(),
                 "data": {
                     "name": loggedIn,
-                    "text": review
+                    "text": comment
                 }
             });
             return true;
@@ -37,19 +37,19 @@ export async function postReview(review) {
     }
 }
 
-export async function getReviews() {
+export async function getComments() {
     const axios = getAxiosInstance('/private');
     let loggedIn = checkLoggedIn();
 
     if (loggedIn !== "") { // T = they're logged in, show reviews
         try {
-            return await axios.get(`/review`, {"Authorization": "Bearer " + getToken()});
+            return await axios.get(`/comment`, {"Authorization": "Bearer " + getToken()});
         } catch (error) {
-            console.log("problem getting reviews")
+            console.log("problem getting comments")
             return null;
         }
     } else {
-        console.log("not logged in to see reviews");
+        console.log("not logged in to see comments");
         return null;
     }
 }
