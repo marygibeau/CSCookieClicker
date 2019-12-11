@@ -3,20 +3,21 @@ import { getAxiosInstance } from "./config/Axios";
 
 export async function checkLoggedIn() { // checks to see if user is logged in
     let axios = getAxiosInstance('/account');
-    let loggedIn = "";
     try {
-        let res = await axios.get(`/status`, { "Authorization": "Bearer " + getToken() });
-        loggedIn = res.data.user.name;
-        return loggedIn;
+        let response = await axios.get(`/status`, { "Authorization": "Bearer " + getToken() });
+        console.log(response.data.user.name);
+        return response.data.user.name;
     } catch (error) {
         console.log(error);
-        return loggedIn;
     }
 }
 
 export async function postComment(comment) {
+    let loggedIn = await checkLoggedIn();
+
+    console.log(loggedIn);
+
     const axios = getAxiosInstance('/private');
-    let loggedIn = checkLoggedIn();
 
     if (loggedIn === "") {
         alert("Must be logged in before commenting!");
@@ -35,15 +36,18 @@ export async function postComment(comment) {
             return false;
         }
     }
+
 }
 
 export async function getComments() {
     const axios = getAxiosInstance('/private');
-    let loggedIn = checkLoggedIn();
+    let loggedIn = await checkLoggedIn();
 
     if (loggedIn !== "") { // T = they're logged in, show reviews
         try {
-            return await axios.get(`/comment`, {"Authorization": "Bearer " + getToken()});
+            let response = await axios.get(`/comment`, { "Authorization": "Bearer " + getToken() });
+            console.log("in getComments: " + response);
+            return response.data;
         } catch (error) {
             console.log("problem getting comments")
             return null;
