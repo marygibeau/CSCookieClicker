@@ -1,6 +1,6 @@
 {
   "nat": {
-    "player": {
+    "save": {
       "lifetimeTickets": 0,
       "currentTickets": 0
     }

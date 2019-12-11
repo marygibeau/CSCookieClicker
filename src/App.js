@@ -5,13 +5,22 @@ import KMPImage from "../assets/kmp_button.png";
 import KrisImage from "../assets/kris.png";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import CreateAccount from "./CreateAccount";
-import Login from "./Login";
-import Logout from "./Logout";
-import Info from "./Info";
-import Leaderboard from "./Leaderboard";
+import Login from "./LoginComponent";
+import Logout from "./LogoutComponent";
+import Info from "./InfoComponent";
 import StottsImage from "../assets/stotts.png";
 import MontekImage from "../assets/montek.png";
 import JeffayImage from "../assets/jeffay.png";
+
+const krisTPS = 0.5;
+const stottsTPS = 5;
+const montekTPS = 10;
+const jeffayTPS = 50;
+
+let krises = [];
+let stotts = [];
+let montek = [];
+let jeffay = [];
 
 class App extends Component {
 
@@ -20,27 +29,19 @@ class App extends Component {
     this.state = {
       score: 0,
       krisCount: 0,
-      krises: [],
       krisCost: 5,
-      krisTPS: 0.5,
       stottsCount: 0,
-      stotts: [],
       stottsCost: 50,
-      stottsTPS: 5,
       montekCount: 0,
-      montek: [],
       montekCost: 100,
-      montekTPS: 10,
       jeffayCount: 0,
-      jeffay: [],
       jeffayCost: 1000,
-      jeffayTPS: 50,
     }
     this.KMPClickCallback.bind(this);
   }
   componentDidMount() {
     this.initializeState();
-    this.interval = setInterval(() => this.setState((state) => ({ score: state.score + (state.krisTPS * state.krisCount) + (state.stottsTPS * state.stottsCount) + (state.montekTPS * state.montekCount) + (state.jeffayTPS * state.jeffayCount) })), 1000);
+    this.interval = setInterval(() => this.setState((state) => ({ score: state.score + (krisTPS * state.krisCount) + (stottsTPS * state.stottsCount) + (montekTPS * state.montekCount) + (jeffayTPS * state.jeffayCount) })), 1000);
   }
 
   componentWillUnmount() {
@@ -57,7 +58,7 @@ class App extends Component {
 
   boughtJeffayCallBack() {
     if (this.state.score >= this.state.jeffayCost) {
-      this.state.jeffay.push(<img class='jeffay' src={JeffayImage} />);
+      jeffay.push(<img class='jeffay' src={JeffayImage} />);
       this.setState({
         score: this.state.score - this.state.jeffayCost,
         jeffayCount: this.state.jeffayCount + 1,
@@ -68,7 +69,7 @@ class App extends Component {
 
   boughtMontekCallBack() {
     if (this.state.score >= this.state.montekCost) {
-      this.state.montek.push(<img class='montek' src={MontekImage} />);
+      montek.push(<img class='montek' src={MontekImage} />);
       this.setState({
         score: this.state.score - this.state.montekCost,
         montekCount: this.state.montekCount + 1,
@@ -79,7 +80,7 @@ class App extends Component {
 
   boughtStottsCallBack() {
     if (this.state.score >= this.state.stottsCost) {
-      this.state.stotts.push(<img class='stotts' src={StottsImage} />);
+      stotts.push(<img class='stotts' src={StottsImage} />);
       this.setState({
         score: this.state.score - this.state.stottsCost,
         stottsCount: this.state.stottsCount + 1,
@@ -90,7 +91,7 @@ class App extends Component {
 
   boughtKrisCallBack() {
     if (this.state.score >= this.state.krisCost) {
-      this.state.krises.push(<img class='kris' src={KrisImage} />);
+      krises.push(<img class='kris' src={KrisImage} />);
       this.setState({
         score: this.state.score - this.state.krisCost,
         krisCount: this.state.krisCount + 1,
@@ -109,9 +110,9 @@ class App extends Component {
 
     const Game = () => (
       <div className="App">
-        <div className="wrapper">
-          <div className="text-group">
-            <h1 className="chrome-text">CS</h1>
+        <div class="wrapper">
+          <div class="text-group">
+            <h1 class="chrome-text">CS</h1>
             <h3 class="pink-text">Clicker</h3>
           </div>
         </div>
@@ -126,7 +127,7 @@ class App extends Component {
               <div id="krises">
                 <div class="table">
                   <ul class="horizontal-list">
-                    {this.state.krises.map((value, index) => {
+                    {krises.map((value, index) => {
                       return <li key={index}>{value}</li>
                     })}
                   </ul>
@@ -138,7 +139,7 @@ class App extends Component {
                 <div id="stottses">
                   <div class="table">
                     <ul class="horizontal-list">
-                      {this.state.stotts.map((value, index) => {
+                      {stotts.map((value, index) => {
                         return <li key={index}>{value}</li>
                       })}
                     </ul>
@@ -151,7 +152,7 @@ class App extends Component {
                 <div id="monteks">
                   <div class="table">
                     <ul class="horizontal-list">
-                      {this.state.montek.map((value, index) => {
+                      {montek.map((value, index) => {
                         return <li key={index}>{value}</li>
                       })}
                     </ul>
@@ -164,7 +165,7 @@ class App extends Component {
                 <div id="jeffays">
                   <div class="table">
                     <ul class="horizontal-list">
-                      {this.state.jeffay.map((value, index) => {
+                      {jeffay.map((value, index) => {
                         return <li key={index}>{value}</li>
                       })}
                     </ul>
@@ -179,29 +180,22 @@ class App extends Component {
     );
     return (
       <Router>
-        <div>
-          <ul>
-            <li>
-              <Link to="/">Login</Link>
+        <div class="nav-div">
+          <ul class="nav-bar">
+            <li class="nav-link">
+              <Link class="link" to="/">Login</Link>
             </li>
-            <li>
-              <Link to="/info">Info</Link>
+            <li class="nav-link">
+              <Link class="link" to="/info">Info</Link>
             </li>
-            <li>
-              <Link to="/game">Game</Link>
-            </li>
-            <li>
-              <Link to="/leaderboard">Leaderboard</Link>
+            <li class="nav-link">
+              <Link class="link" to="/game">Game</Link>
             </li>
           </ul>
-
-          <hr />
-
-          <Route exact path="/" component={LoginPage} />
-          <Route path="/info" component={InfoPage} />
-          <Route path="/game" component={Game} />
-          <Route path="/leaderboard" component={LeaderboardPage} />
         </div>
+        <Route exact path="/" component={LoginPage} />
+        <Route path="/info" component={InfoPage} />
+        <Route path="/game" component={Game} />
       </Router>
     );
   }
