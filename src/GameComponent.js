@@ -1,9 +1,7 @@
 import React from 'react';
 import './App.css';
 import KMPImage from "../assets/kmp_button.png";
-import KMPImage from "../assets/kmp_button.png";
 import SnowKMPImage from "../assets/kmp_button_snow.png";
-import KrisImage from "../assets/kris.png";
 import KrisImage from "../assets/kris.png";
 import StottsImage from "../assets/stotts.png";
 import MontekImage from "../assets/montek.png";
