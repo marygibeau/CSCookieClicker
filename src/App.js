@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React, { Component } from 'react';
 import './App.css';
 import KMPImage from "../assets/kmp_button.png";

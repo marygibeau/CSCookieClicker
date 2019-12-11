@@ -1,4 +1,22 @@
 import React from 'react';
+import {postReview, getReviews} from "./Private";
+
+function BuildReviews() {
+    let reviews = getReviews();
+    console.log(reviews);
+    let result = ``;
+    if (reviews !== null && reviews !== undefined ) {
+        // loop through reviews and append html to result
+        Object.keys(reviews).forEach(function(key) {
+            result += `<div><h4>` + reviews[key].name + `</h4><p>` + reviews[key].text +  `</p></div>`;
+        });
+        // for (rev in reviews) {
+        //     // name is res.name, comment is res.text
+        //     result += `<div><h4>{rev.name}</h4><p>{rev.text}</p></div>`
+        // }
+    }
+    return result;
+}
 
 function Info() {
     return (
@@ -12,6 +30,25 @@ function Info() {
             </div>
             <div>
                 <h2>Forum</h2>
+                <form onSubmit={async (e) => {
+                    e.preventDefault();
+                    const rev = e.target.review.value;
+                    if (await postReview(rev)) {
+                        console.log("Comment posted!");
+                        window.location.reload();
+                    } else {
+                        console.log("Comment failed :(");
+                    }
+                }}>
+                    <textarea name="review"></textarea> <br></br>
+                    <input className="button is-primary" type="submit" value={"Comment"} />
+                </form>
+
+                <h3>Other Reviews</h3>
+                <div id="reviews">
+                    {/* previous reviews here */}
+                    {/* <BuildReviews/> */}
+                </div>
             </div>
         </div>
 
