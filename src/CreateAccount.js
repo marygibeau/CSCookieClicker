@@ -1,5 +1,6 @@
 import React from 'react';
-import {createAccount} from "./Account";
+import {createAccount, login} from "./Account";
+import {createTicketCount} from "./User"
 let confirmation = "";
 function CreateAccount() {
     return (
@@ -11,6 +12,12 @@ function CreateAccount() {
           const pass = e.target.pass.value;
           if (await createAccount({name, pass})) {
             confirmation = "Account created!";
+            // log the user in
+            if(login({name, pass})) {
+            createTicketCount(name);
+            } else {
+              alert("log in failed");
+            }
           } else {
             confirmation = "Error in creating account";
           }

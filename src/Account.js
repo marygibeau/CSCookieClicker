@@ -1,25 +1,24 @@
-import {setToken} from "./config/Token";
-import {getAxiosInstance} from "./config/Axios";
-import {createTicketCount} from "./User";
+import { setToken } from "./config/Token";
+import { getAxiosInstance } from "./config/Axios";
+import { createTicketCount } from "./User";
 
 const axios = getAxiosInstance('/account');
 
-export async function login({name, pass}) {
+export async function login({ name, pass }) {
   try {
-    const res = await axios.post(`/login`, {"name": name, "pass": pass, "data": {}});
+    const res = await axios.post(`/login`, { "name": name, "pass": pass, "data": {} });
     const jwt = res.data.jwt;
     setToken(jwt);
-    createTicketCount(name);
     return true;
   } catch (error) {
     return false;
   }
 }
 //`/create`, {name: name, pass: pass}
-export async function createAccount({name, pass}) {
+export async function createAccount({ name, pass }) {
   try {
     console.log("creating account");
-    await axios.post('/create', {"name": name, "pass": pass, "data": {}});
+    await axios.post('/create', { "name": name, "pass": pass, "data": {} });
     // console.log(result);
     return true;
   } catch (error) {
