@@ -2,8 +2,8 @@ import React from 'react';
 import {postReview, getReviews} from "./Private";
 
 function BuildReviews() {
-    let reviews = getReviews();
-    console.log(reviews);
+    let reviews = getReviews().data;
+    console.log("result of getReviews: " + reviews);
     let result = ``;
     if (reviews !== null && reviews !== undefined ) {
         // loop through reviews and append html to result
@@ -47,7 +47,7 @@ function Info() {
                 <h3>Other Reviews</h3>
                 <div id="reviews">
                     {/* previous reviews here */}
-                    {/* <BuildReviews/> */}
+                    <BuildReviews/>
                 </div>
             </div>
         </div>

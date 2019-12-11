@@ -209,24 +209,38 @@ class App extends Component {
 
 const LoginPage = () => (
   <div>
-    <Login/>
-    <CreateAccount/>
-    <Logout/>
+    <Login />
+    <CreateAccount />
+    <Logout />
   </div>
 
 );
 
-const InfoPage = () => (
-  <div>
-    <Info/>
-  </div>
-);
+// const InfoPage = () => (
+//   <div>
+//     <Info/>
+//   </div>
+// );
 
 const LeaderboardPage = () => (
   <div>
-    <Leaderboard/>
+    <Leaderboard />
   </div>
 );
 
+class InfoPage extends Component {
+  // I did this as a class because the reviews component was refreshing every second, which means
+  // that it was sending an axios request per second, which is wasteful
+  shouldComponentUpdate(nextProps, nextState) {
+    return false;
+  }
+  render() {
+    return (
+      <div>
+        <Info />
+      </div>
+    )
+  }
+}
 
 export default App;
