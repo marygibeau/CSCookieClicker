@@ -43,6 +43,10 @@
     "mary2": {
       "passwordHash": "$2a$10$nMYv.RE4Bdf0QovK1uqkw.T0OdnndKqD8wdqlM.O.fBapx6x7rqmG",
       "data": {}
+    },
+    "mary1": {
+      "passwordHash": "$2a$10$GRXfBvteHNigo2PAO6zCV.NJIrWGvTIkrN37xldA2/yTTYZ0KDZcO",
+      "data": {}
     }
   }
 }

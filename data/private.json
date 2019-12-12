@@ -1,6 +1,17 @@
 {
-  "review": {
-    "name": "nat",
-    "text": "test"
+  "mary": {
+    "comments": [
+      ":/",
+      ":)",
+      ":D",
+      ":$"
+    ]
+  },
+  "mary1": {
+    "comments": [
+      ":^/",
+      ":^)",
+      ":^D"
+    ]
   }
 }
