@@ -133,8 +133,8 @@ class Game extends React.Component {
                         <img id="kmpbutton" src={KMPImage} onClick={() => this.KMPClickCallback()} alt={"kmp button"} />
                         <p class="content-text">{this.state.score} Tickets</p>
                         {(loggedIn !== "") && <div>
-                            <button onClick={() => { updateTicketCount(loggedIn, this.state) }}>save</button>
-                            <button onClick={() => { deleteTicketCount(loggedIn) }}>delete saves</button>
+                            <button class="buyButton" onClick={() => { updateTicketCount(loggedIn, this.state) }}>Save</button>
+                            <button class="buyButton" onClick={() => { deleteTicketCount(loggedIn) }}>Delete Saves</button>
                         </div>}
                     </div>
                     <div id="storeArea">
@@ -150,44 +150,44 @@ class Game extends React.Component {
                                 </div>
                                 <p class="content-text">Kris count: {this.state.krisCount}</p>
                             </div>
-                            <div id="StottsArea">
-                                <button class="buyButton" onClick={() => this.boughtStottsCallBack()}>Buy a Stotts: {this.state.stottsCost} Tickets</button>
-                                <div id="stottses">
-                                    <div class="table">
-                                        <ul class="horizontal-list">
-                                            {stotts.map((value, index) => {
-                                                return <li key={index}>{value}</li>
-                                            })}
-                                        </ul>
-                                    </div>
-                                    <p class="content-text">Stotts count: {this.state.stottsCount}</p>
+                        </div>
+                        <div id="StottsArea">
+                            <button class="buyButton" onClick={() => this.boughtStottsCallBack()}>Buy a Stotts: {this.state.stottsCost} Tickets</button>
+                            <div id="stottses">
+                                <div class="table">
+                                    <ul class="horizontal-list">
+                                        {stotts.map((value, index) => {
+                                            return <li key={index}>{value}</li>
+                                        })}
+                                    </ul>
                                 </div>
+                                <p class="content-text">Stotts count: {this.state.stottsCount}</p>
                             </div>
-                            <div id="MontekArea">
-                                <button class="buyButton" onClick={() => this.boughtMontekCallBack()}>Buy a Montek: {this.state.montekCost} Tickets</button>
-                                <div id="monteks">
-                                    <div class="table">
-                                        <ul class="horizontal-list">
-                                            {montek.map((value, index) => {
-                                                return <li key={index}>{value}</li>
-                                            })}
-                                        </ul>
-                                    </div>
-                                    <p class="content-text">Montek count: {this.state.montekCount}</p>
+                        </div>
+                        <div id="MontekArea">
+                            <button class="buyButton" onClick={() => this.boughtMontekCallBack()}>Buy a Montek: {this.state.montekCost} Tickets</button>
+                            <div id="monteks">
+                                <div class="table">
+                                    <ul class="horizontal-list">
+                                        {montek.map((value, index) => {
+                                            return <li key={index}>{value}</li>
+                                        })}
+                                    </ul>
                                 </div>
+                                <p class="content-text">Montek count: {this.state.montekCount}</p>
                             </div>
-                            <div id="JeffayArea">
-                                <button class="buyButton" onClick={() => this.boughtJeffayCallBack()}>Buy a Jeffay: {this.state.jeffayCost} Tickets</button>
-                                <div id="jeffays">
-                                    <div class="table">
-                                        <ul class="horizontal-list">
-                                            {jeffay.map((value, index) => {
-                                                return <li key={index}>{value}</li>
-                                            })}
-                                        </ul>
-                                    </div>
-                                    <p class="content-text">Jeffay count: {this.state.jeffayCount}</p>
+                        </div>
+                        <div id="JeffayArea">
+                            <button class="buyButton" onClick={() => this.boughtJeffayCallBack()}>Buy a Jeffay: {this.state.jeffayCost} Tickets</button>
+                            <div id="jeffays">
+                                <div class="table">
+                                    <ul class="horizontal-list">
+                                        {jeffay.map((value, index) => {
+                                            return <li key={index}>{value}</li>
+                                        })}
+                                    </ul>
                                 </div>
+                                <p class="content-text">Jeffay count: {this.state.jeffayCount}</p>
                             </div>
                         </div>
                     </div>

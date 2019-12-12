@@ -277,3 +277,21 @@ ul.horizontal-list li {
   height: 10em;
   font-size: 18px;
 }
+
+.logoutButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 99;
+  display: inline-block;
+  padding: 5px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4b0081;
+  border-radius: 15px;
+  box-shadow: 0 9px rgb(121, 121, 121);
+}
