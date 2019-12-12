@@ -22,13 +22,7 @@ function BuildComments() {
 function Info() {
     return (
         <div>
-            <div className="wrapper">
-                <div className="text-group">
-                    <h1 className="chrome-text">CS</h1>
-                    <h3 class="pink-text">Clicker</h3>
-                </div>
-            </div>
-            <div class="div-pad"> 
+            <div class="div-pad">
                 <h2 class="title-text">About the Game</h2>
                 <p class="p-font">This is CS Cookie Clicker, a spicy hot take on the classic <a href="https://orteil.dashnet.org/cookieclicker/">Cookie Clicker</a> game. </p>
                 <p class="p-font">Our version is based on the faculty of the UNC Computer Science Department, and clicking their faces earns you tickets to the <a href="http://hootpage.com">Mike Watt</a> concert in October 2019!</p>
@@ -39,11 +33,11 @@ function Info() {
                 <div>
                     <Autocomplete
                         suggestions={[
-                        "Kris",
-                        "Stotts",
-                        "Montek",
-                        "Jeffay",
-                        "KMP"
+                            "Kris",
+                            "Stotts",
+                            "Montek",
+                            "Jeffay",
+                            "KMP"
                         ]}
                     />
                 </div>
@@ -71,7 +65,7 @@ function Info() {
                     <BuildComments />
                 </div>
             </div>
-        </div>
+        </div >
 
     )
 }

@@ -4,5 +4,20 @@
       "lifetimeTickets": 0,
       "currentTickets": 0
     }
+  },
+  "mary": {
+    "save": {
+      "gameState": {
+        "score": 0,
+        "krisCount": 0,
+        "krisCost": 5,
+        "stottsCount": 0,
+        "stottsCost": 50,
+        "montekCount": 0,
+        "montekCost": 100,
+        "jeffayCount": 0,
+        "jeffayCost": 1000
+      }
+    }
   }
 }

@@ -30,43 +30,25 @@ export async function initializeTicketCount(name) {
     }
 }
 
-export async function quickSave(name, gameState) {
+export async function readTicketCount(name) {
+    // console.log("createTicketCount");
+    // console.log(getToken())
+    try {
+        return await axios.get(`/save`, { "Authorization": "Bearer " + getToken() });
+    } catch (error) {
+        return null;
+    }
+}
+
+export async function updateTicketCount(name, gameState) {
+    // console.log("createTicketCount");
+    // console.log(getToken())
     try {
         await axios.post(`/save`, {
             "name": name,
             "Authorization": "Bearer " + getToken(),
             "data": {
-                "lifetimeTickets": 0,
-                "currentTickets": 0
-            }
-        });
-        return true;
-    } catch (error) {
-        return false;
-    }
-}
-
-export async function readTicketCount(name) {
-    // console.log("createTicketCount");
-    // console.log(getToken())
-    try {
-        await axios.get(`/player`, { "Authorization": "Bearer " + getToken() });
-        return true;
-    } catch (error) {
-        return false;
-    }
-}
-
-export async function updateTicketCount(name) {
-    // console.log("createTicketCount");
-    // console.log(getToken())
-    try {
-        await axios.post(`/player`, {
-            "name": name,
-            "Authorization": "Bearer " + getToken(),
-            "data": {
-                "lifetimeTickets": 0,
-                "currentTickets": 0
+                "gameState": gameState
             }
         });
         return true;
@@ -79,14 +61,14 @@ export async function deleteTicketCount(name) {
     // console.log("createTicketCount");
     // console.log(getToken())
     try {
-        await axios.post(`/player`, {
-            "name": name,
-            "Authorization": "Bearer " + getToken(),
-            "data": {
-                "lifetimeTickets": 0,
-                "currentTickets": 0
+        await axios.delete(
+            "/save",
+            {
+                headers: {
+                    Authorization: "Bearer " + getToken()
+                }
             }
-        });
+        );
         return true;
     } catch (error) {
         return false;
