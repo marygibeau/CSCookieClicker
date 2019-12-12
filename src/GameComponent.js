@@ -195,7 +195,7 @@ class Game extends React.Component {
                         <img id="clouds" src={Clouds} />
                         <br></br>
                         <img id="windy1" src={Windy} />
-                        <img id="kmpbutton" src={KMPImage} onClick={() => this.KMPClickCallback()} alt={"kmp button"} />
+                        <img id="kmpbutton" src={KMP} onClick={() => this.KMPClickCallback()} alt={"kmp button"} />
                         <img id="windy2" src={Windy} />
                         <p class="content-text">{this.state.score} Tickets</p>
                         {(loggedIn !== "") && <div>
