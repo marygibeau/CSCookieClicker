@@ -139,7 +139,7 @@ class Game extends React.Component {
                     </div>
                     <div id="storeArea">
                         <div id="KrisArea">
-                            <p class="content-text" onClick={() => this.boughtKrisCallBack()}>click me to buy a kris for {this.state.krisCost} tickets</p>
+                            <button class="buyButton" onClick={() => this.boughtKrisCallBack()}>Buy a Kris: {this.state.krisCost} Tickets</button>
                             <div id="krises">
                                 <div class="table">
                                     <ul class="horizontal-list">
@@ -151,7 +151,7 @@ class Game extends React.Component {
                                 <p class="content-text">Kris count: {this.state.krisCount}</p>
                             </div>
                             <div id="StottsArea">
-                                <p class="content-text" onClick={() => this.boughtStottsCallBack()}>click me to buy a Stotts for {this.state.stottsCost} tickets</p>
+                                <button class="buyButton" onClick={() => this.boughtStottsCallBack()}>Buy a Stotts: {this.state.stottsCost} Tickets</button>
                                 <div id="stottses">
                                     <div class="table">
                                         <ul class="horizontal-list">
@@ -164,7 +164,7 @@ class Game extends React.Component {
                                 </div>
                             </div>
                             <div id="MontekArea">
-                                <p class="content-text" onClick={() => this.boughtMontekCallBack()}>click me to buy a Montek for {this.state.montekCost} tickets</p>
+                                <button class="buyButton" onClick={() => this.boughtMontekCallBack()}>Buy a Montek: {this.state.montekCost} Tickets</button>
                                 <div id="monteks">
                                     <div class="table">
                                         <ul class="horizontal-list">
@@ -177,7 +177,7 @@ class Game extends React.Component {
                                 </div>
                             </div>
                             <div id="JeffayArea">
-                                <p class="content-text" onClick={() => this.boughtJeffayCallBack()}>click me to buy a Jeffay for {this.state.jeffayCost} tickets</p>
+                                <button class="buyButton" onClick={() => this.boughtJeffayCallBack()}>Buy a Jeffay: {this.state.jeffayCost} Tickets</button>
                                 <div id="jeffays">
                                     <div class="table">
                                         <ul class="horizontal-list">
