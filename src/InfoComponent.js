@@ -25,11 +25,11 @@ function Info() {
         <div>
             <div class="div-pad">
                 <h2 class="title-text">About the Game</h2>
-                <p class="p-font">This is CS Cookie Clicker, a spicy hot take on the classic <a href="https://orteil.dashnet.org/cookieclicker/">Cookie Clicker</a> game. </p>
+                <p class="p-font">This is CS Clicker, a spicy hot take on the classic <a href="https://orteil.dashnet.org/cookieclicker/">Cookie Clicker</a> game. </p>
                 <p class="p-font">Our version is based on the faculty of the UNC Computer Science Department, and clicking their faces earns you tickets to the <a href="http://hootpage.com">Mike Watt</a> concert in October 2019!</p>
                 <p class="p-font">Here's more information about the tickets you can earn when you click on each professor's face: </p>
                 <div className="searchBar">
-                    <p class="title-text">Search for professors to learn about them!</p>
+                    <p class="title-text">Search for Professors to Learn About Them!</p>
                 </div>
                 <div>
                     <Autocomplete

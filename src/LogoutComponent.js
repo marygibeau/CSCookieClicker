@@ -4,7 +4,7 @@ import { setToken } from "./config/Token";
 function Logout() {
   return (
     <div class="div-pad">
-      <button className="button is-danger"
+      <button class="logoutButton"
         onClick={() => {
           setToken('');
           window.location.reload();

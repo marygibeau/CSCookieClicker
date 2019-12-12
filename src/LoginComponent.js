@@ -5,7 +5,8 @@ function Login(props) {
   console.log(props);
   return (
     <div className="login">
-      <h2>Login</h2>
+      <div class="div-pad">
+        <h1 class="title-text">Login</h1>
       <form onSubmit={async event => {
         event.preventDefault();
         const name = event.target.username.value;
@@ -22,14 +23,15 @@ function Login(props) {
 
       }}>
         <div className="field">
-          <input id="username" className="input" placeholder="Username" type="text" name="username" />
+          <input id="username" class="form-input" placeholder="Username" type="text" name="username" />
         </div>
         <div className="field">
-          <input id="password" className="input" placeholder="Password" type="password" name="password" />
+          <input id="password" class="form-input" placeholder="Password" type="password" name="password" />
         </div>
-        <input id="submitbutton" className="button is-primary" type="submit" value="Login" />
+        <input id="submitbutton" class="buyButton" type="submit" value="Login" />
       </form>
       <p>{confirmation}</p>
+    </div>
     </div>
   );
 }

@@ -77,7 +77,9 @@ class Game extends React.Component {
 
     boughtJeffayCallBack() {
         if (this.state.score >= this.state.jeffayCost) {
-            jeffay.push(<img class='jeffay' src={JeffayImage} />);
+            if (this.state.jeffayCount < 10) {
+                jeffay.push(<img class='jeffay' src={JeffayImage} />);
+            }
             this.setState({
                 score: this.state.score - this.state.jeffayCost,
                 jeffayCount: this.state.jeffayCount + 1,
@@ -88,7 +90,9 @@ class Game extends React.Component {
 
     boughtMontekCallBack() {
         if (this.state.score >= this.state.montekCost) {
-            montek.push(<img class='montek' src={MontekImage} />);
+            if (this.state.montekCount < 10) {
+                montek.push(<img class='montek' src={MontekImage} />);
+            }
             this.setState({
                 score: this.state.score - this.state.montekCost,
                 montekCount: this.state.montekCount + 1,
@@ -99,7 +103,9 @@ class Game extends React.Component {
 
     boughtStottsCallBack() {
         if (this.state.score >= this.state.stottsCost) {
-            stotts.push(<img class='stotts' src={StottsImage} />);
+            if (this.state.stottsCount < 10) {
+                stotts.push(<img class='stotts' src={StottsImage} />);
+            }
             this.setState({
                 score: this.state.score - this.state.stottsCost,
                 stottsCount: this.state.stottsCount + 1,
@@ -110,7 +116,10 @@ class Game extends React.Component {
 
     boughtKrisCallBack() {
         if (this.state.score >= this.state.krisCost) {
-            krises.push(<img class='kris' src={KrisImage} />);
+            console.log(this.state.krisCount);
+            if (this.state.krisCount < 10) {
+                krises.push(<img class='kris' src={KrisImage} />);
+            }
             this.setState({
                 score: this.state.score - this.state.krisCost,
                 krisCount: this.state.krisCount + 1,
@@ -134,14 +143,16 @@ class Game extends React.Component {
                         <img id="kmpbutton" src={KMPImage} onClick={() => this.KMPClickCallback()} alt={"kmp button"} />
                         <p class="content-text">{this.state.score} Tickets</p>
                         {(loggedIn !== "") && <div>
-                            <button onClick={() => { updateTicketCount(loggedIn, this.state) }}>save</button>
-                            <button onClick={() => { deleteTicketCount(loggedIn) }}>delete saves</button>
+                            <button class="buyButton" onClick={() => { updateTicketCount(loggedIn, this.state) }}>Save</button>
+                            <button class="buyButton" onClick={() => { deleteTicketCount(loggedIn) }}>Delete Saves</button>
                         </div>}
                     </div>
                     <div id="storeArea">
-                        <div id="KrisArea">
-                            <p class="content-text" onClick={() => this.boughtKrisCallBack()}>click me to buy a kris for {this.state.krisCost} tickets</p>
-                            <div id="krises">
+                        <div id="KrisArea" class="profContainer">
+                            <div class="buyDiv">
+                                <button class="buyButton" onClick={() => this.boughtKrisCallBack()}>Buy a Kris: {this.state.krisCost} Tickets</button>
+                            </div>
+                            <div id="krises" class="profArray">
                                 <div class="table">
                                     <ul class="horizontal-list">
                                         {krises.map((value, index) => {
@@ -149,47 +160,65 @@ class Game extends React.Component {
                                         })}
                                     </ul>
                                 </div>
-                                <p class="content-text">Kris count: {this.state.krisCount}</p>
                             </div>
-                            <div id="StottsArea">
-                                <p class="content-text" onClick={() => this.boughtStottsCallBack()}>click me to buy a Stotts for {this.state.stottsCost} tickets</p>
-                                <div id="stottses">
-                                    <div class="table">
-                                        <ul class="horizontal-list">
-                                            {stotts.map((value, index) => {
-                                                return <li key={index}>{value}</li>
-                                            })}
-                                        </ul>
-                                    </div>
-                                    <p class="content-text">Stotts count: {this.state.stottsCount}</p>
+                            <div class="costDiv">
+                                <p class="content-text">Kris Count: {this.state.krisCount}</p>
+                            </div>
+
+                        </div>
+                        <div id="StottsArea" class="profContainer">
+                            <div class="buyDiv">
+                                <button class="buyButton" onClick={() => this.boughtStottsCallBack()}>Buy a Stotts: {this.state.stottsCost} Tickets</button>
+                            </div>
+                            <div id="stottses" class="profArray">
+                                <div class="table">
+                                    <ul class="horizontal-list">
+                                        {stotts.map((value, index) => {
+                                            return <li key={index}>{value}</li>
+                                        })}
+                                    </ul>
                                 </div>
                             </div>
-                            <div id="MontekArea">
-                                <p class="content-text" onClick={() => this.boughtMontekCallBack()}>click me to buy a Montek for {this.state.montekCost} tickets</p>
-                                <div id="monteks">
-                                    <div class="table">
-                                        <ul class="horizontal-list">
-                                            {montek.map((value, index) => {
-                                                return <li key={index}>{value}</li>
-                                            })}
-                                        </ul>
-                                    </div>
-                                    <p class="content-text">Montek count: {this.state.montekCount}</p>
+                            <div class="costDiv">
+                                <p class="content-text">Stotts Count: {this.state.stottsCount}</p>
+                            </div>
+
+                        </div>
+                        <div id="MontekArea" class="profContainer">
+                            <div class="buyDiv">
+                                <button class="buyButton" onClick={() => this.boughtMontekCallBack()}>Buy a Montek: {this.state.montekCost} Tickets</button>
+                            </div>
+                            <div id="monteks" class="profArray">
+                                <div class="table">
+                                    <ul class="horizontal-list">
+                                        {montek.map((value, index) => {
+                                            return <li key={index}>{value}</li>
+                                        })}
+                                    </ul>
                                 </div>
                             </div>
-                            <div id="JeffayArea">
-                                <p class="content-text" onClick={() => this.boughtJeffayCallBack()}>click me to buy a Jeffay for {this.state.jeffayCost} tickets</p>
-                                <div id="jeffays">
-                                    <div class="table">
-                                        <ul class="horizontal-list">
-                                            {jeffay.map((value, index) => {
-                                                return <li key={index}>{value}</li>
-                                            })}
-                                        </ul>
-                                    </div>
-                                    <p class="content-text">Jeffay count: {this.state.jeffayCount}</p>
+                            <div class="costDiv">
+                                <p class="content-text">Montek Count: {this.state.montekCount}</p>
+                            </div>
+
+                        </div>
+                        <div id="JeffayArea" class="profContainer">
+                            <div class="buyDiv">
+                                <button class="buyButton" onClick={() => this.boughtJeffayCallBack()}>Buy a Jeffay: {this.state.jeffayCost} Tickets</button>
+                            </div>
+                            <div id="jeffays" class="profArray">
+                                <div class="table">
+                                    <ul class="horizontal-list">
+                                        {jeffay.map((value, index) => {
+                                            return <li key={index}>{value}</li>
+                                        })}
+                                    </ul>
                                 </div>
                             </div>
+                            <div class="costDiv">
+                                <p class="content-text">Jeffay Count: {this.state.jeffayCount}</p>
+                            </div>
+
                         </div>
                     </div>
                 </div>
