@@ -5,7 +5,6 @@ class Rating extends React.Component {
     constructor() {
         super();
         this.state = {};
-        // this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     render() {
@@ -34,7 +33,7 @@ class Rating extends React.Component {
                         1<input type="range" min="1" max="5" class="slider" name="review" />5
                     </div>
                     <br />
-                    <button type="submit">Send data!</button>
+                    <button type="submit">Submit!</button>
                 </form>
             </div>
         );

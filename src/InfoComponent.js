@@ -21,6 +21,7 @@ function BuildComments() {
 }
 
 function Info() {
+    console.log(getStatus());
     return (
         <div>
             <div class="div-pad">
