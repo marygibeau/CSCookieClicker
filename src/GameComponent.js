@@ -8,6 +8,7 @@ import MontekImage from "../assets/montek.png";
 import JeffayImage from "../assets/jeffay.png";
 import checkLoggedIn from "./Private";
 import { updateTicketCount, deleteTicketCount } from "./User";
+import Rating from "./RatingComponent"
 
 let KMP = KMPImage;
 
@@ -192,6 +193,7 @@ class Game extends React.Component {
                         </div>
                     </div>
                 </div>
+                <Rating />
             </div>
         );
     }

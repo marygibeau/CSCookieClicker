@@ -1,6 +1,7 @@
 import React from 'react';
 import { postComment, getComments } from "./Private";
 import Autocomplete from "./Autocomplete";
+import { getStatus } from "./Public";
 
 function BuildComments() {
     let comments = getComments().data;
