@@ -25,12 +25,12 @@ function CreateAccount(props) {
 
       }}>
         <div className="field">
-          <input className="input" placeholder="Username" type="text" name="name" />
+          <input class="form-input" placeholder="Username" type="text" name="name" />
         </div>
         <div className="field">
-          <input className="input" placeholder="Password" type="password" name="pass" />
+          <input class="form-input" placeholder="Password" type="password" name="pass" />
         </div>
-        <input className="button is-primary" type="submit" value={"Create"} />
+        <input class="buyButton" type="submit" value={"Create"} />
       </form>
       <p>{confirmation}</p>
     </div>
