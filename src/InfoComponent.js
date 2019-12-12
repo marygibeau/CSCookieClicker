@@ -3,34 +3,14 @@ import { postComment, getComments } from "./Private";
 import Autocomplete from "./Autocomplete";
 import { getStatus } from "./Public";
 
-async function displayComments() {
-    console.log("in displayComments");
-    let commentArr = await getComments();
-    console.log("comment array: ");
-    // this is doing something whacky take a look at it
-    console.log(commentArr);
-    let output = [];
-    console.log(commentArr.length)
-    for (let i = 0; i < commentArr.length; i++) {
-        let value = commentArr[i];
-        return output.push(<li key={i}>
-            <div>
-                <p>{value["name"]} said: </p>
-                <p>{value["comment"]}</p>
-            </div>
-        </li>)
-    }
-
-    console.log("display comments output: ");
-    console.log(output);
-    return output;
-}
+let loggedIn = "";
 
 class Info extends React.Component {
     constructor(props) {
         super(props);
+        loggedIn = props.loggedInValue;
         this.state = {
-            commentElements: null,
+            comments: [],
         };
     }
 
@@ -40,8 +20,14 @@ class Info extends React.Component {
     }
 
     async initializeComments() {
-        let comments = await displayComments();
-        this.setState({ commentElements: comments });
+        // let comments = await getComments();
+        let comments = [{ name: "mary", comment: ":/" },
+                        { name: "mary", comment: ":)" },
+                        { name: "mary", comment: ":D" },
+                        { name: "mary1", comment: ":^/" },
+                        { name: "mary1", comment: ":^)" },
+                        { name: "mary1", comment: ":^D" }]
+        this.setState({ comments: comments });
     }
 
     render() {
@@ -84,9 +70,21 @@ class Info extends React.Component {
                     <h3 class="title-text">Other Comments</h3>
                     <div id="comments">
                         {/* previous reviews here */}
-                        <ul>
-                            {this.state.commentElements}
-                        </ul>
+                        {(loggedIn !== "") ?
+                            <ul>
+                                {(this.state.comments !== null && this.state.comments !== []) ?
+                                    this.state.comments.map((value, index) => {
+                                        return <li key={index}>
+                                            <div>
+                                                <p>{value["name"]} said: </p>
+                                                <p>{value["comment"]}</p>
+                                            </div>
+                                        </li>
+                                    }) :
+                                    <li key="none">No Comments Right Now!</li>}
+                            </ul> :
+                            <p>make sure you're logged in to be able to see comments!</p>
+                        }
                         {/* <BuildComments /> */}
                     </div>
                 </div>

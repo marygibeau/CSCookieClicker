@@ -76,7 +76,7 @@ class InfoPage extends Component {
     return (
       <div>
         {(loggedIn !== "") && <Logout />}
-        <Info />
+        <Info loggedInValue={loggedIn}/>
       </div>
     )
   }

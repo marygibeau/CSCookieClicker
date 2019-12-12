@@ -60,8 +60,27 @@ export async function getComments() {
             let response = await axios.get('/', { "Authorization": "Bearer " + getToken() });
             // console.log(response.data.result);
             // map commenters to their comments
-            let output = await mapComments(response.data.result);
+            let commenters = response.data.result;
             // console.log(output);
+            // return output;
+            let output = [];
+            let nameArr = [];
+            let commentArr = [];
+            await commenters.map(async (name, index) => {
+                let url = "/" + name;
+                let commentResponse = await axios.get(url, { "Authorization": "Bearer " + getToken() });
+                // console.log(commentResponse.data.result["comments"]);
+                let commentsArr = commentResponse.data.result["comments"];
+                commentsArr.map((comment, commentIndex) => {
+                    nameArr[nameArr.length] = name;
+                    commentArr[commentArr.length] = comment;
+                })
+            })
+            output[0] = nameArr;
+            output[1] = commentArr;
+            console.log("getComments output = ");
+            console.log(output);
+            console.log(output.length);
             return output;
         } catch (error) {
             console.log("problem getting comments")
@@ -74,15 +93,5 @@ export async function getComments() {
 }
 
 export async function mapComments(commenters) {
-    let output = [];
-    await commenters.map(async (name, index) => {
-        let url = "/" + name;
-        let commentResponse = await axios.get(url, { "Authorization": "Bearer " + getToken() });
-        // console.log(commentResponse.data.result["comments"]);
-        let commentArr = commentResponse.data.result["comments"];
-        commentArr.map((comment, commentIndex) => {
-            output.push({ "name": name, "comment": comment })
-        })
-    })
-    return output;
+
 }
