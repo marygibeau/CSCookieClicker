@@ -21,12 +21,12 @@ class Info extends React.Component {
 
     async initializeComments() {
         // let comments = await getComments();
-        let comments = [{ name: "mary", comment: ":/" },
-                        { name: "mary", comment: ":)" },
-                        { name: "mary", comment: ":D" },
-                        { name: "mary1", comment: ":^/" },
-                        { name: "mary1", comment: ":^)" },
-                        { name: "mary1", comment: ":^D" }]
+        let comments = [{ name: "mary", comment: "cool beans" },
+                        { name: "natalie", comment: "excellent game" },
+                        { name: "mary", comment: "hello again" },
+                        { name: "haley", comment: "yooo" },
+                        { name: "jeremiahalfaro", comment: "hi" },
+                        { name: "armando", comment: "ayy lmao" }]
         this.setState({ comments: comments });
     }
 
@@ -61,6 +61,8 @@ class Info extends React.Component {
                         if (await postComment(com)) {
                             console.log("Comment posted!");
                             // window.location.reload();
+                            document.getElementById("commentList").append(loggedIn + " said: ");
+                            document.getElementById("commentList").append(com);
                         } else {
                             console.log("Comment failed :(");
                         }
@@ -73,13 +75,12 @@ class Info extends React.Component {
                     <div id="comments">
                         {/* previous reviews here */}
                         {(loggedIn !== "") ?
-                            <ul>
+                            <ul id="commentList" class="ul-no-bullet">
                                 {(this.state.comments !== null && this.state.comments !== []) ?
                                     this.state.comments.map((value, index) => {
                                         return <li key={index}>
                                             <div>
-                                                <p>{value["name"]} said: </p>
-                                                <p>{value["comment"]}</p>
+                                                <p>{value["name"]} said: {value["comment"]}</p>
                                             </div>
                                         </li>
                                     }) :

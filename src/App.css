@@ -356,3 +356,7 @@ ul.horizontal-list li {
   border-width: 5px;
   border-color: #290047;
 }
+
+.ul-no-bullet {
+  list-style-type: none;
+}

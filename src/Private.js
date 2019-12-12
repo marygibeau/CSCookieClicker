@@ -76,6 +76,8 @@ export async function getComments() {
                     commentArr[commentArr.length] = comment;
                 })
             })
+            console.log(nameArr);
+            console.log(commentArr);
             output[0] = nameArr;
             output[1] = commentArr;
             console.log("getComments output = ");
