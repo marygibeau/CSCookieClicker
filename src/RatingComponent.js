@@ -3,7 +3,8 @@ import { postReview, getStatus } from './Public'
 
 let reviewTotal = "";
 
-console.log("in displayRatings");
+async function displayRatings() {
+    console.log("in displayRatings");
     let reviews = await getStatus();
     console.log(reviews);
     let output = "The average rating of this game is: " + reviews;
