@@ -52,6 +52,7 @@ function loginCallback(data) {
 const GamePage = () => {
   return (
   <div>
+    {(loggedIn !== "") && <Logout />}
     <Game loggedInValue={loggedIn}/>
   </div>);
 }
@@ -60,7 +61,7 @@ const LoginPage = () => (
   <div>
     <Login callbackFromParent={loginCallback}/>
     <CreateAccount callbackFromParent={loginCallback}/>
-    <Logout />
+    {(loggedIn !== "") && <Logout />}
   </div>
 
 );
@@ -74,6 +75,7 @@ class InfoPage extends Component {
   render() {
     return (
       <div>
+        {(loggedIn !== "") && <Logout />}
         <Info />
       </div>
     )
