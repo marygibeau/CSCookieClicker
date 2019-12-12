@@ -34,7 +34,9 @@ export async function readTicketCount(name) {
     // console.log("createTicketCount");
     // console.log(getToken())
     try {
-        return await axios.get(`/save`, { "Authorization": "Bearer " + getToken() });
+        let output = await axios.get(`/save`, { "Authorization": "Bearer " + getToken() });
+        console.log(output);
+        return output;
     } catch (error) {
         return null;
     }
