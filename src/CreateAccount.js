@@ -5,7 +5,7 @@ let confirmation = "";
 function CreateAccount() {
     return (
       <div class="div-pad">
-        <h3 class="title-text">Create Account</h3>
+        <h1 class="title-text">Create Account</h1>
         <form onSubmit={async (e) => {
           e.preventDefault();
           const name = e.target.name.value;
@@ -24,12 +24,12 @@ function CreateAccount() {
           
         }}>
           <div className="field">
-            <input className="input" placeholder="Username" type="text" name="name"/>
+            <input class="form-input" placeholder="Username" type="text" name="name"/>
           </div>
           <div className="field">
-            <input className="input" placeholder="Password" type="password" name="pass"/>
+            <input class="form-input" placeholder="Password" type="password" name="pass"/>
           </div>
-          <input className="button is-primary" type="submit" value={"Create"}/>
+          <input class="buyButton" type="submit" value={"Create"}/>
         </form>
         <p>{confirmation}</p>
       </div>
