@@ -48,6 +48,11 @@ class Game extends React.Component {
             montekCost: 100,
             jeffayCount: 0,
             jeffayCost: 1000,
+            temperature: 50,
+            humidity: 0,
+            windspeed: 0,
+            clouds: 0,
+            descrip: "",
         }
         this.KMPClickCallback.bind(this);
         this.initializeState();
