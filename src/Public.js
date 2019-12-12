@@ -15,7 +15,7 @@ export async function postReview(name, rate) {
 
 export async function getStatus() {
     try {
-      return (await axios.get(`/reviews`)).data.rating;
+      return (await axios.get(`/reviews`)).data;
     } catch (error) {
       return false;
     }
