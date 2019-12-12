@@ -76,7 +76,9 @@ class Game extends React.Component {
 
     boughtJeffayCallBack() {
         if (this.state.score >= this.state.jeffayCost) {
-            jeffay.push(<img class='jeffay' src={JeffayImage} />);
+            if (this.state.jeffayCount < 10) {
+                jeffay.push(<img class='jeffay' src={JeffayImage} />);
+            }
             this.setState({
                 score: this.state.score - this.state.jeffayCost,
                 jeffayCount: this.state.jeffayCount + 1,
@@ -87,7 +89,9 @@ class Game extends React.Component {
 
     boughtMontekCallBack() {
         if (this.state.score >= this.state.montekCost) {
-            montek.push(<img class='montek' src={MontekImage} />);
+            if (this.state.montekCount < 10) {
+                montek.push(<img class='montek' src={MontekImage} />);
+            }
             this.setState({
                 score: this.state.score - this.state.montekCost,
                 montekCount: this.state.montekCount + 1,
@@ -98,7 +102,9 @@ class Game extends React.Component {
 
     boughtStottsCallBack() {
         if (this.state.score >= this.state.stottsCost) {
-            stotts.push(<img class='stotts' src={StottsImage} />);
+            if (this.state.stottsCount < 10) {
+                stotts.push(<img class='stotts' src={StottsImage} />);
+            }
             this.setState({
                 score: this.state.score - this.state.stottsCost,
                 stottsCount: this.state.stottsCount + 1,
@@ -109,7 +115,10 @@ class Game extends React.Component {
 
     boughtKrisCallBack() {
         if (this.state.score >= this.state.krisCost) {
-            krises.push(<img class='kris' src={KrisImage} />);
+            console.log(this.state.krisCount);
+            if (this.state.krisCount < 10) {
+                krises.push(<img class='kris' src={KrisImage} />);
+            }
             this.setState({
                 score: this.state.score - this.state.krisCost,
                 krisCount: this.state.krisCount + 1,
@@ -138,9 +147,11 @@ class Game extends React.Component {
                         </div>}
                     </div>
                     <div id="storeArea">
-                        <div id="KrisArea">
-                            <button class="buyButton" onClick={() => this.boughtKrisCallBack()}>Buy a Kris: {this.state.krisCost} Tickets</button>
-                            <div id="krises">
+                        <div id="KrisArea" class="profContainer">
+                            <div class="buyDiv">
+                                <button class="buyButton" onClick={() => this.boughtKrisCallBack()}>Buy a Kris: {this.state.krisCost} Tickets</button>
+                            </div>
+                            <div id="krises" class="profArray">
                                 <div class="table">
                                     <ul class="horizontal-list">
                                         {krises.map((value, index) => {
@@ -148,12 +159,17 @@ class Game extends React.Component {
                                         })}
                                     </ul>
                                 </div>
-                                <p class="content-text">Kris count: {this.state.krisCount}</p>
                             </div>
+                            <div class="costDiv">
+                                <p class="content-text">Kris Count: {this.state.krisCount}</p>
+                            </div>
+
                         </div>
-                        <div id="StottsArea">
-                            <button class="buyButton" onClick={() => this.boughtStottsCallBack()}>Buy a Stotts: {this.state.stottsCost} Tickets</button>
-                            <div id="stottses">
+                        <div id="StottsArea" class="profContainer">
+                            <div class="buyDiv">
+                                <button class="buyButton" onClick={() => this.boughtStottsCallBack()}>Buy a Stotts: {this.state.stottsCost} Tickets</button>
+                            </div>
+                            <div id="stottses" class="profArray">
                                 <div class="table">
                                     <ul class="horizontal-list">
                                         {stotts.map((value, index) => {
@@ -161,12 +177,17 @@ class Game extends React.Component {
                                         })}
                                     </ul>
                                 </div>
-                                <p class="content-text">Stotts count: {this.state.stottsCount}</p>
                             </div>
+                            <div class="costDiv">
+                                <p class="content-text">Stotts Count: {this.state.stottsCount}</p>
+                            </div>
+
                         </div>
-                        <div id="MontekArea">
-                            <button class="buyButton" onClick={() => this.boughtMontekCallBack()}>Buy a Montek: {this.state.montekCost} Tickets</button>
-                            <div id="monteks">
+                        <div id="MontekArea" class="profContainer">
+                            <div class="buyDiv">
+                                <button class="buyButton" onClick={() => this.boughtMontekCallBack()}>Buy a Montek: {this.state.montekCost} Tickets</button>
+                            </div>
+                            <div id="monteks" class="profArray">
                                 <div class="table">
                                     <ul class="horizontal-list">
                                         {montek.map((value, index) => {
@@ -174,12 +195,17 @@ class Game extends React.Component {
                                         })}
                                     </ul>
                                 </div>
-                                <p class="content-text">Montek count: {this.state.montekCount}</p>
                             </div>
+                            <div class="costDiv">
+                                <p class="content-text">Montek Count: {this.state.montekCount}</p>
+                            </div>
+
                         </div>
-                        <div id="JeffayArea">
-                            <button class="buyButton" onClick={() => this.boughtJeffayCallBack()}>Buy a Jeffay: {this.state.jeffayCost} Tickets</button>
-                            <div id="jeffays">
+                        <div id="JeffayArea" class="profContainer">
+                            <div class="buyDiv">
+                                <button class="buyButton" onClick={() => this.boughtJeffayCallBack()}>Buy a Jeffay: {this.state.jeffayCost} Tickets</button>
+                            </div>
+                            <div id="jeffays" class="profArray">
                                 <div class="table">
                                     <ul class="horizontal-list">
                                         {jeffay.map((value, index) => {
@@ -187,8 +213,11 @@ class Game extends React.Component {
                                         })}
                                     </ul>
                                 </div>
-                                <p class="content-text">Jeffay count: {this.state.jeffayCount}</p>
                             </div>
+                            <div class="costDiv">
+                                <p class="content-text">Jeffay Count: {this.state.jeffayCount}</p>
+                            </div>
+
                         </div>
                     </div>
                 </div>
