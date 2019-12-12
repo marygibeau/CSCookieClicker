@@ -35,16 +35,12 @@ export async function getStatus() {
 }
 
 export async function deleteReview(name) {
+  let url = "/" + name;
   try {
-    await axios.delete("/reviews",
-      {
-        headers: {
-          Authorization: "Bearer " + name
-        }
-      }
-    );
+    await axios.delete(url);
     return true;
   } catch (error) {
+    console.log(error);
     return false;
   }
 }
