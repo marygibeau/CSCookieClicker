@@ -47,6 +47,10 @@
     "mary1": {
       "passwordHash": "$2a$10$GRXfBvteHNigo2PAO6zCV.NJIrWGvTIkrN37xldA2/yTTYZ0KDZcO",
       "data": {}
+    },
+    "armando": {
+      "passwordHash": "$2a$10$OfU9wKCNm85SOfALmoDMde8WZ0jNsjpCPmjg1qsdcP/h8R2x7nvky",
+      "data": {}
     }
   }
 }

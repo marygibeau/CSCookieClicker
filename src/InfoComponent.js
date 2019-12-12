@@ -1,6 +1,7 @@
 import React from 'react';
 import { postComment, getComments } from "./Private";
 import Autocomplete from "./Autocomplete";
+import { getStatus } from "./Public";
 
 async function displayComments() {
     console.log("in displayComments");
@@ -31,6 +32,7 @@ class Info extends React.Component {
             commentElements: null,
         };
     }
+
 
     componentDidMount() {
         this.initializeComments();

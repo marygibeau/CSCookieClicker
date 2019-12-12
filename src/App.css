@@ -8,7 +8,10 @@ body {
 }
 
 .div-pad {
-  padding-left: 30px
+  padding-left: 30px;
+  width: 1000px;
+  margin: auto;
+  text-align: center;
 }
 
 .text-group {
@@ -91,22 +94,29 @@ body {
   height: 80px;
 }
 
+#kmpbutton {
+  padding-top: 100px;
+}
+
 #kmpbutton:active {
   content: url("../assets/kmp_button_cash.png");
 }
 
 #gameSpace {
-  padding-top: 30px;
   display: flex;
   flex-flow: row;
   height: 100%;
 }
 
 #buttonArea {
-  width: 25%;
+  width: 33%;
+  border-right-style: solid;
+  border-width: 5px;
+  border-color: #290047;
 }
 
 #storeArea {
+  padding-top: 30px;
   flex-grow: 1;
 }
 
@@ -155,6 +165,8 @@ ul.horizontal-list li {
   font-family: 'Titillium Web', sans-serif;
   font-style: italic;
   font-size: 40px;
+  display: inline;
+  float: none;
 }
 
 .buyButton {
@@ -240,4 +252,87 @@ ul.horizontal-list li {
   margin: 0 auto;
   padding: 20px;
   text-align: center;
+}
+
+.form-input {
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 3px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  width: 50%;
+}
+
+.form-input:focus {
+  border: 3px solid #555;
+}
+
+.p-font {
+  font-size: 25px;
+}
+
+.textArea {
+  width: 40em;
+  height: 10em;
+  font-size: 18px;
+}
+
+.logoutButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 99;
+  display: inline-block;
+  padding: 5px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4b0081;
+  border-radius: 15px;
+  box-shadow: 0 9px rgb(121, 121, 121);
+}
+
+.profContainer {
+  height: 200px;
+  margin: auto;
+  text-align: center;
+  width: 900px;
+}
+
+.buyDiv {
+  display: inline-block;
+  height: 70px;
+  width: 100px;
+  position: relative;
+  top: -35px;
+}
+
+.costDiv {
+  display: inline-block;
+  height: 70px;
+  width: 120px;
+  position: relative;
+  top: 40px;
+}
+
+.costDiv .content-text {
+  color: white; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1.5px;
+  -webkit-text-stroke-color: black;
+  font-family: 'Titillium Web', sans-serif;
+  font-style: italic;
+  font-size: 25px;
+  position: relative;
+  top: -32px;
+  left: 20px;
+}
+
+.profArray {  
+  display: inline-block;
+  min-width: 50px;
+  height: 70px;
 }
