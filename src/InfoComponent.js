@@ -35,10 +35,12 @@ class Info extends React.Component {
             <div>
                 <div class="div-pad">
                     <h2 class="title-text">About the Game</h2>
-                    <p>This is CS Cookie Clicker, a spicy hot take on the classic <a href="https://orteil.dashnet.org/cookieclicker/">Cookie Clicker</a> game. </p>
-                    <p>Our version is based on the faculty of the UNC Computer Science Department, and clicking their faces earns you tickets to the <a href="http://hootpage.com">Mike Watt</a> concert in October 2019!</p>
-                    <p>Here's more information about the tickets you can earn when you click on each professor's face: </p>
-                    <div className="searchBar">Search for professors to learn about them!</div>
+                    <p class="p-font">This is CS Cookie Clicker, a spicy hot take on the classic <a href="https://orteil.dashnet.org/cookieclicker/">Cookie Clicker</a> game. </p>
+                    <p class="p-font">Our version is based on the faculty of the UNC Computer Science Department, and clicking their faces earns you tickets to the <a href="http://hootpage.com">Mike Watt</a> concert in October 2019!</p>
+                    <p class="p-font">Here's more information about the tickets you can earn when you click on each professor's face: </p>
+                    <div className="searchBar">
+                        <h2 class="title-text">Search for professors to learn about them!</h2>
+                        </div>
                     <div>
                         <Autocomplete
                             suggestions={[
@@ -63,8 +65,8 @@ class Info extends React.Component {
                             console.log("Comment failed :(");
                         }
                     }}>
-                        <textarea name="comment"></textarea> <br></br>
-                        <input className="button is-primary" type="submit" value={"Comment"} />
+                        <textarea class="textArea" name="comment"></textarea> <br></br>
+                        <input class="buyButton" type="submit" value={"Comment"} />
                     </form>
 
                     <h3 class="title-text">Other Comments</h3>
