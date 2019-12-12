@@ -8,15 +8,16 @@
   "mary": {
     "save": {
       "gameState": {
-        "score": 0,
-        "krisCount": 0,
-        "krisCost": 5,
-        "stottsCount": 0,
-        "stottsCost": 50,
-        "montekCount": 0,
-        "montekCost": 100,
-        "jeffayCount": 0,
-        "jeffayCost": 1000
+        "score": 1048,
+        "krisCount": 2,
+        "krisCost": 9.5,
+        "stottsCount": 2,
+        "stottsCost": 80,
+        "montekCount": 4,
+        "montekCost": 300,
+        "jeffayCount": 1,
+        "jeffayCost": 1075,
+        "temperature": 29.1
       }
     }
   }

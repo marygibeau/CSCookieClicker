@@ -7,7 +7,7 @@ import StottsImage from "../assets/stotts.png";
 import MontekImage from "../assets/montek.png";
 import JeffayImage from "../assets/jeffay.png";
 import checkLoggedIn from "./Private";
-import { updateTicketCount, deleteTicketCount } from "./User";
+import { updateTicketCount, deleteTicketCount, readTicketCount } from "./User";
 import Rating from "./RatingComponent"
 
 let KMP = KMPImage;
@@ -43,9 +43,9 @@ class Game extends React.Component {
             jeffayCost: 1000,
         }
         this.KMPClickCallback.bind(this);
+        this.initializeState();
     }
     componentDidMount() {
-        this.initializeState();
         this.interval = setInterval(() => this.setState((state) => ({ score: state.score + (krisTPS * state.krisCount) + (stottsTPS * state.stottsCount) + (montekTPS * state.montekCount) + (jeffayTPS * state.jeffayCount) })), 1000);
     }
 
@@ -64,15 +64,46 @@ class Game extends React.Component {
         })
     }
 
+    async loadSave() {
+        let gameStateResponse = await readTicketCount(loggedIn);
+        let gameState = gameStateResponse.data.result["gameState"];
+        if (gameState !== {}) {
+            this.setState({
+                score: gameState["score"],
+                krisCount: gameState["krisCount"],
+                krisCost: gameState["krisCost"],
+                stottsCount: gameState["stottsCount"],
+                stottsCost: gameState["stottsCost"],
+                montekCount: gameState["montekCount"],
+                montekCost: gameState["montekCost"],
+                jeffayCount: gameState["jeffayCount"],
+                jeffayCost: gameState["jeffayCost"],
+            })
+            krises = [];
+            stotts = [];
+            montek = [];
+            jeffay = [];
+            for (let i = 0; i < gameState["krisCount"] && i < 10; i++) {
+                krises.push(<img class='kris' src={KrisImage} />);
+            }
+            for (let i = 0; i < gameState["stottsCount"] && i < 10; i++) {
+                stotts.push(<img class='stotts' src={StottsImage} />);
+            }
+            for (let i = 0; i < gameState["montekCount"] && i < 10; i++) {
+                montek.push(<img class='montek' src={MontekImage} />);
+            }
+            for (let i = 0; i < gameState["jeffayCount"] && i < 10; i++) {
+                jeffay.push(<img class='jeffay' src={JeffayImage} />);
+            }
+        }
+    }
+
     async initializeState() {
         console.log("initializing state");
-        loggedIn = await checkLoggedIn();
+        if (loggedIn !== "") {
+            await this.loadSave()
+        }
         this.getWeather();
-        // oldScore = await callToServer...
-        // find out time since last log in and calculate points from automatic score generating items
-        // accumulatedPoints = timeSinceLastLoginInSeconds * pointsPerSecond
-        // newScore = oldScore + accumulatedPoints;
-        // this.state.score = newScore;
     }
 
     boughtJeffayCallBack() {
@@ -145,6 +176,7 @@ class Game extends React.Component {
                         {(loggedIn !== "") && <div>
                             <button class="buyButton" onClick={() => { updateTicketCount(loggedIn, this.state) }}>Save</button>
                             <button class="buyButton" onClick={() => { deleteTicketCount(loggedIn) }}>Delete Saves</button>
+                            <button class="buyButton" onClick={async () => { await this.loadSave() }}>Load Previous Save</button>
                         </div>}
                     </div>
                     <div id="storeArea">

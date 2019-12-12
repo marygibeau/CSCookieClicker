@@ -7,7 +7,7 @@ export async function checkLoggedIn() { // checks to see if user is logged in
     let axios = getAxiosInstance('/account');
     try {
         let response = await axios.get(`/status`, { "Authorization": "Bearer " + getToken() });
-        // console.log(response.data.user.name);
+        console.log("username = " + response.data.user.name);
         return response.data.user.name;
     } catch (error) {
         console.log(error);

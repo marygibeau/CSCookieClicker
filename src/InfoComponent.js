@@ -7,6 +7,7 @@ async function displayComments() {
     console.log("in displayComments");
     let commentArr = await getComments();
     console.log("comment array: ");
+    // this is doing something whacky take a look at it
     console.log(commentArr);
     let output = [];
     console.log(commentArr.length)
