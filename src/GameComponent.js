@@ -2,6 +2,10 @@ import React from 'react';
 import './App.css';
 import KMPImage from "../assets/kmp_button.png";
 import SnowKMPImage from "../assets/kmp_button_snow.png";
+import TicketImage from "../assets/ticket.png";
+import TicketWater from "../assets/ticketwater.png";
+import WindyImage from "../assets/windy.png";
+import CloudsImage from "../assets/clouds.png";
 import KrisImage from "../assets/kris.png";
 import StottsImage from "../assets/stotts.png";
 import MontekImage from "../assets/montek.png";
@@ -11,6 +15,9 @@ import { updateTicketCount, deleteTicketCount, readTicketCount } from "./User";
 import Rating from "./RatingComponent"
 
 let KMP = KMPImage;
+let Ticket = TicketImage
+let Clouds;
+let Windy;
 
 const krisTPS = 0.5;
 const stottsTPS = 5;
@@ -54,12 +61,26 @@ class Game extends React.Component {
     }
 
     getWeather() {
+        console.log("getting weather");
         fetch('http://api.openweathermap.org/data/2.5/weather?zip=27514&APPID=9b480b2d714bad8368d57be060e9ac29&units=imperial').then(result => {
             return result.json();
         }).then(result => {
             this.state.temperature = result.main.temp;
+            this.state.humidity = result.main.humidity;
+            this.state.windspeed= result.wind.speed;
+            this.state.clouds= result.clouds.all;
+            this.state.descrip = result.weather[0].description;
             if (this.state.temperature <= 32) {
                 KMP = SnowKMPImage;
+            }
+            if (this.state.humidity > 50) {
+                Ticket = TicketWater;
+            }
+            if (this.state.clouds > 0) {
+                Clouds = CloudsImage;
+            }
+            if (this.state.windspeed > 5) {
+                Windy = WindyImage;
             }
         })
     }
@@ -100,10 +121,10 @@ class Game extends React.Component {
 
     async initializeState() {
         console.log("initializing state");
+        this.getWeather();
         if (loggedIn !== "") {
             await this.loadSave()
         }
-        this.getWeather();
     }
 
     boughtJeffayCallBack() {
@@ -171,13 +192,20 @@ class Game extends React.Component {
             <div className="App">
                 <div id="gameSpace">
                     <div id="buttonArea">
+                        <img id="clouds" src={Clouds} />
+                        <br></br>
+                        <img id="windy1" src={Windy} />
                         <img id="kmpbutton" src={KMPImage} onClick={() => this.KMPClickCallback()} alt={"kmp button"} />
+                        <img id="windy2" src={Windy} />
                         <p class="content-text">{this.state.score} Tickets</p>
                         {(loggedIn !== "") && <div>
                             <button class="buyButton" onClick={() => { updateTicketCount(loggedIn, this.state) }}>Save</button>
                             <button class="buyButton" onClick={() => { deleteTicketCount(loggedIn) }}>Delete Saves</button>
                             <button class="buyButton" onClick={async () => { await this.loadSave() }}>Load Previous Save</button>
                         </div>}
+                        <br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+                        <img id="ticketimage" src={Ticket} />
+                        <p class="content-text">{this.state.descrip}</p>
                     </div>
                     <div id="storeArea">
                         <div id="KrisArea" class="profContainer">
