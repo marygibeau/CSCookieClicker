@@ -20,3 +20,35 @@ export async function getStatus() {
       return false;
     }
   }
+
+
+export async function updateReview(name, rate) {
+  try {
+      await axios.post(`/reviews`, {
+          "name": name,
+          "Authorization": "Bearer " + name,
+          "data": {
+              "rating": rate
+          }
+      });
+      return true;
+  } catch (error) {
+      return false;
+  }
+}
+
+export async function deleteReview(name) {
+  try {
+      await axios.delete(
+          "/reviews",
+          {
+              headers: {
+                  Authorization: "Bearer " + name
+              }
+          }
+      );
+      return true;
+  } catch (error) {
+      return false;
+  }
+}
